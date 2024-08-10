@@ -1,13 +1,12 @@
 <?php
 
-use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BerandaController;
-use App\Http\Controllers\DaftarBelanjaController;
-use App\Http\Controllers\InputNotaController;
 use App\Http\Controllers\KalkulatorBelanjaController;
-use App\Http\Controllers\KeuanganController;
+use App\Http\Controllers\BelanjaanController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\KeuanganController;
 
 // Auth
 Route::get('/', [AuthController::class, 'index']);
@@ -16,14 +15,22 @@ Route::get('/', [AuthController::class, 'index']);
 Route::get('/beranda', [BerandaController::class, 'index']);
 
 // Belanja
+// Kalkulator Belanja //
 Route::get('/kalkulatorBelanja', [KalkulatorBelanjaController::class, 'index']);
-Route::get('/daftarBelanja', [DaftarBelanjaController::class, 'index']);
-Route::get('/inputNota', [InputNotaController::class, 'index']);
-Route::get('/formInputNota', [InputNotaController::class, 'create']);
+// Belanjaan //
+Route::get('/daftarBelanja', [BelanjaanController::class, 'index']);
+Route::get('/belanjaanBaru', [BelanjaanController::class, 'indexBelanjaanBaru']);
+Route::get('/inputNota', [BelanjaanController::class, 'create']);
+Route::get('/editNota', [BelanjaanController::class, 'edit']);
+Route::get('/detailNota', [BelanjaanController::class, 'show']);
 
 // Produk
-Route::get('/produk', [ProdukController::class, 'index']);
+// Dafatar Produk //
+Route::get('/daftarProduk', [ProdukController::class, 'index']);
 Route::get('/editProduk', [ProdukController::class, 'edit']);
+Route::get('/detailProduk', [ProdukController::class, 'show']);
+// Satuan Produk //
+Route::get('/satuanProduk', [ProdukController::class, 'indexSatuanProduk']);
 
 // Keuangan
 Route::get('/keuangan', [KeuanganController::class, 'index']);
