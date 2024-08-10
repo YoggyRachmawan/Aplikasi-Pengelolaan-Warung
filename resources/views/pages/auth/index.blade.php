@@ -12,7 +12,7 @@
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     <style>
         .bg {
-            background-image: url("{{ asset('assets/img/fikri-rasyid-ezeC8-clZSs-unsplash.jpg') }}");
+            background-image: url("{{ asset('assets/img/warung.jpg') }}");
             height: 100%;
             background-position: center;
             background-repeat: no-repeat;
@@ -30,7 +30,9 @@
                         <div class="col-lg-5">
                             <div class="card shadow-lg border-0 rounded-lg mt-5">
                                 <div class="card-header bg-dark">
-                                    <h3 class="text-center fw-bold my-4 text-light">Warung<span style="border-top-right-radius: 10px;" class="text-bg-light text-dark">Ku</h3>
+                                    <h3 class="text-center fw-bold my-4 text-light">Warung<span
+                                            style="border-top-right-radius: 10px;" class="text-bg-light text-dark">Ku
+                                    </h3>
                                 </div>
                                 <div class="card-body">
                                     <form>
@@ -67,21 +69,6 @@
                     </div>
                 </div>
             </main>
-        </div>
-        <div id="layoutAuthentication_footer">
-            <footer class="py-4 mt-auto">
-                <div class="container-fluid px-4">
-                    <div class="d-flex align-items-center justify-content-between small">
-                        <div class="text-muted"></div>
-                        <div class="bg-light">
-                            Photo by <a
-                                href="https://unsplash.com/@fikrirasyid?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Fikri
-                                Rasyid</a> on <a
-                                href="https://unsplash.com/photos/pile-of-grocery-items-ezeC8-clZSs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-                        </div>
-                    </div>
-                </div>
-            </footer>
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">

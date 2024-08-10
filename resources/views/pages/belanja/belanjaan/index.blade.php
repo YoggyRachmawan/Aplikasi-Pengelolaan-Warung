@@ -8,9 +8,8 @@
             <div class="card mb-4">
                 <div class="card-header d-flex">
                     <label>Daftar Belanja</label>
-                    <a href="/inputNota" type="button" class="btn btn-primary btn-sm float-right ms-auto"><i
-                            class="bi bi-file-plus"></i>
-                        Input Nota
+                    <a href="/belanjaanBaru" type="button" class="btn btn-primary btn-sm float-right ms-auto"><i class="bi bi-card-list"></i>
+                        Belanjaan Baru
                     </a>
                 </div>
                 <div class="card-body">
@@ -31,8 +30,8 @@
                                 <td>BLW0001</td>
                                 <td>Rp 75.500</td>
                                 <td class="text-center">
-                                    <a href="" class="btn btn-warning btn-sm"><i class="bi bi-pen-fill"></i> Ubah</a>
-                                    <a href="" class="btn btn-info btn-sm"><i
+                                    <a href="/editNota" class="btn btn-warning btn-sm"><i class="bi bi-pen-fill"></i> Ubah</a>
+                                    <a href="/detailNota" class="btn btn-info btn-sm"><i
                                             class="bi bi-file-earmark-text-fill"></i> Detail</a>
                                     <a href="" class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i>
                                         Hapus</a>

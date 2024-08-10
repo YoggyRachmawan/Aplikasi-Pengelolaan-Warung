@@ -49,9 +49,7 @@
     <script>
         $(document).ready(function () {
             $("#tabelData").DataTable();
-            $('.js-example-basic-single').select2({
-                placeholder: "Silakan pilih"
-            });
+            $('.js-example-basic-single').select2();
         });
     </script>
 </body>

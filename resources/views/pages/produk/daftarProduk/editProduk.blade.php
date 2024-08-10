@@ -2,15 +2,15 @@
 @section('content')
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Belanja</h1>
+            <h1 class="mt-4">Produk</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item"><a href="/produk">Produk</a></li>
-                <li class="breadcrumb-item active">Form Edit Produk</li>
+                <li class="breadcrumb-item"><a href="/daftarProduk">Produk</a></li>
+                <li class="breadcrumb-item active">Edit Produk</li>
             </ol>
             <div class="card mb-4">
                 <div class="card-header d-flex">
                     <label> Form Edit Produk</label>
-                    <a href="/produk" type="button" class="btn btn-primary btn-sm float-right ms-auto"><i
+                    <a href="/daftarProduk" type="button" class="btn btn-primary btn-sm float-right ms-auto"><i
                             class="bi bi-arrow-bar-left"></i>
                         Kembali
                     </a>
@@ -25,21 +25,17 @@
                                 <form>
                                     <div class="card-body">
                                         <div class="mb-3">
-                                            <label for="jumlah" class="form-label">Jumlah</label>
-                                            <input type="text" class="form-control form-control-sm" id="jumlah">
+                                            <label for="harga" class="form-label">Harga</label>
+                                            <input type="number" class="form-control form-control-sm" id="harga">
                                         </div>
                                         <div class="mb-3">
                                             <label for="paket" class="form-label">Satuan</label>
                                             <select class="js-example-basic-single" style="width: 100%" name="state">
-                                                <option value=""></option>
-                                                <option value="AL">Dus</option>
-                                                <option value="WY">Lusin</option>
+                                                <option value="">--Pilih Satuan--</option>
                                                 <option value="AL">Bungkus</option>
+                                                <option value="WY">2 Bungkus</option>
+                                                <option value="AL">Renceng</option>
                                             </select>
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="harga" class="form-label">Harga</label>
-                                            <input type="number" class="form-control form-control-sm" id="harga">
                                         </div>
                                     </div>
                                     <div class="card-footer text-muted">
@@ -71,8 +67,8 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td>Indomie Goreng</td>
-                                                                <td>112.000 / 1 Dus<br>56.000 / 20 Bungkus<br>29.000 / 10
-                                                                    Bungkus</td>
+                                                                <td>112.000 / Dus<br>56.000 / 1/2 Dud<br>29.000 / 1/4 Dus
+                                                                </td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -87,17 +83,15 @@
                                             <table class="table table-bordered text-center">
                                                 <thead>
                                                     <tr>
-                                                        <th>Jumlah</th>
-                                                        <th>Satuan</th>
                                                         <th>Harga Jual</th>
+                                                        <th>Satuan</th>
                                                         <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td>2</td>
-                                                        <td>Bungkus</td>
                                                         <td>Rp 6.500</td>
+                                                        <td>2 Bungkus</td>
                                                         <td>
                                                             <a href="" class="btn btn-danger btn-sm"><i
                                                                     class="bi bi-trash-fill"></i>
@@ -105,9 +99,8 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>1</td>
-                                                        <td>Bungkus</td>
                                                         <td>Rp 3.500</td>
+                                                        <td>Bungkus</td>
                                                         <td>
                                                             <a href="" class="btn btn-danger btn-sm"><i
                                                                     class="bi bi-trash-fill"></i>

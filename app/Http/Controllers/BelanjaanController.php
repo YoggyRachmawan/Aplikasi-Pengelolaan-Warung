@@ -4,14 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class InputNotaController extends Controller
+class BelanjaanController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('pages.belanja.daftarBelanja.indexInputNota');
+        return view('pages.belanja.belanjaan.index');
+    }
+
+    public function indexBelanjaanBaru()
+    {
+        return view('pages.belanja.belanjaan.indexBelanjaanBaru');
     }
 
     /**
@@ -19,7 +24,7 @@ class InputNotaController extends Controller
      */
     public function create()
     {
-        return view('pages.belanja.daftarBelanja.formInputNota');
+        return view('pages.belanja.belanjaan.inputNota');
     }
 
     /**
@@ -33,17 +38,17 @@ class InputNotaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show()
     {
-        //
+        return view('pages.belanja.belanjaan.detailNota');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit()
     {
-        //
+        return view('pages.belanja.belanjaan.editNota');
     }
 
     /**

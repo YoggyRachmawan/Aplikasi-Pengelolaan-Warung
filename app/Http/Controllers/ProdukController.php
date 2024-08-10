@@ -11,7 +11,12 @@ class ProdukController extends Controller
      */
     public function index()
     {
-        return view('pages.produk.index');
+        return view('pages.produk.daftarProduk.index');
+    }
+
+    public function indexSatuanProduk()
+    {
+        return view('pages.produk.satuanProduk.index');
     }
 
     /**
@@ -33,9 +38,9 @@ class ProdukController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show()
     {
-        //
+        return view('pages.produk.daftarProduk.detailProduk');
     }
 
     /**
@@ -43,7 +48,7 @@ class ProdukController extends Controller
      */
     public function edit()
     {
-        return view('pages.produk.editProduk');
+        return view('pages.produk.daftarProduk.editProduk');
     }
 
     /**

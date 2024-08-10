@@ -16,17 +16,17 @@
                                 <form>
                                     <div class="card-body">
                                         <div class="mb-3">
-                                            <label class="form-label">Pilihan Produk</label>
-                                            <select class="js-example-basic-single" style="width: 100%" name="state">
-                                                <option value=""></option>
-                                                <option value="AL">Indomie Goreng / 20 Bungkus</option>
-                                                <option value="WY">Indomie Goreng / 1 Dus</option>
-                                                <option value="AL">Teh Pucuk / 1 Dus</option>
-                                            </select>
+                                            <label for="banyakProduk" class="form-label">Jumlah Beli</label>
+                                            <input type="number" class="form-control form-control-sm" id="banyakProduk">
                                         </div>
                                         <div class="mb-3">
-                                            <label for="banyakProduk" class="form-label">Jumlah</label>
-                                            <input type="number" class="form-control form-control-sm" id="banyakProduk">
+                                            <label class="form-label">Daftar Produk</label>
+                                            <select class="js-example-basic-single" style="width: 100%" name="state">
+                                                <option value="">--Pilih Produk--</option>
+                                                <option value="AL">Indomie Goreng / 1/2 Dus</option>
+                                                <option value="WY">Indomie Goreng / Dus</option>
+                                                <option value="AL">Teh Pucuk / Dus</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="card-footer text-muted">
@@ -43,10 +43,10 @@
                                         <thead>
                                             <tr>
                                                 <th class="text-center">No</th>
-                                                <th>Nama Produk</th>
-                                                <th>Paket</th>
-                                                <th>Harga Per Paket</th>
                                                 <th class="text-center">Jumlah Beli</th>
+                                                <th>Nama Produk</th>
+                                                <th>Satuan</th>
+                                                <th>Harga Produk</th>
                                                 <th>Harga Beli</th>
                                                 <th class="text-center">Aksi</th>
                                             </tr>
@@ -54,10 +54,10 @@
                                         <tbody>
                                             <tr>
                                                 <td class="text-center">1.</td>
-                                                <td>Indomie Goreng</td>
-                                                <td>20 Bungkus</td>
-                                                <td>Rp 56.000</td>
                                                 <td class="text-center">1</td>
+                                                <td>Indomie Goreng</td>
+                                                <td>1/2 Dus</td>
+                                                <td>Rp 56.000</td>
                                                 <td>Rp 56.000</td>
                                                 <td class="text-center">
                                                     <a href="" class="btn btn-danger btn-sm"><i
@@ -66,10 +66,10 @@
                                             </tr>
                                             <tr>
                                                 <td class="text-center">2.</td>
-                                                <td>Teh Gelas</td>
-                                                <td>1 Dus</td>
-                                                <td>Rp 19.500</td>
                                                 <td class="text-center">1</td>
+                                                <td>Teh Gelas</td>
+                                                <td>Dus</td>
+                                                <td>Rp 19.500</td>
                                                 <td>Rp 19.500</td>
                                                 <td class="text-center">
                                                     <a href="" class="btn btn-danger btn-sm"><i
@@ -83,7 +83,7 @@
                                         <ul>
                                             <li>Harga dan total harga hanya berupa perkiraan modal yang harus dikeluarkan
                                                 untuk belanja.</li>
-                                            <li>Harga beli dan total harga tidak akan dicetak pada nota belanja.</li>
+                                            <li>Harga produk, harga beli dan total harga tidak akan dicetak pada nota.</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -98,7 +98,7 @@
                 </div>
                 <div class="card-footer d-flex">
                     <button type="submit" class="btn btn-primary float-right ms-auto"><i class="bi bi-printer"></i>
-                                        Buat Nota</button>
+                        Buat Nota</button>
                 </div>
             </div>
         </div>
