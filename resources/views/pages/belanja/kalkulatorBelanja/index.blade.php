@@ -81,9 +81,9 @@
                                     <div class="form-text">
                                         Catatan :
                                         <ul>
-                                            <li>Harga dan total harga hanya berupa perkiraan modal yang harus dikeluarkan
+                                            <li>Semua harga yang tercantum hanya berupa perkiraan modal yang harus dikeluarkan
                                                 untuk belanja.</li>
-                                            <li>Harga produk, harga beli dan total harga tidak akan dicetak pada nota.</li>
+                                            <li>Semua harga yang tercantum tidak akan dicetak pada nota.</li>
                                         </ul>
                                     </div>
                                 </div>
