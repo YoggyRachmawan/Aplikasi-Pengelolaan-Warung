@@ -4,17 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ProdukController extends Controller
+class SatuanProdukController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
-    {
-        return view('pages.produk.daftarProduk.index');
-    }
-
-    public function indexSatuanProduk()
     {
         return view('pages.produk.satuanProduk.index');
     }
@@ -38,17 +33,17 @@ class ProdukController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show(string $id)
     {
-        return view('pages.produk.daftarProduk.detailProduk');
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit()
+    public function edit(string $id)
     {
-        return view('pages.produk.daftarProduk.editProduk');
+        //
     }
 
     /**

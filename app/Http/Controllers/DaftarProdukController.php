@@ -2,16 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\M_Satuan;
 use Illuminate\Http\Request;
 
-class BelanjaanController extends Controller
+class DaftarProdukController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('pages.belanja.belanjaan.index');
+        return view('pages.produk.daftarProduk.index');
     }
 
     /**
@@ -19,7 +20,7 @@ class BelanjaanController extends Controller
      */
     public function create()
     {
-        return view('pages.belanja.belanjaan.inputBelanjaan');
+        return view('pages.produk.daftarProduk.inputProduk');
     }
 
     /**
@@ -43,7 +44,7 @@ class BelanjaanController extends Controller
      */
     public function edit()
     {
-        return view('pages.belanja.belanjaan.editBelanjaan');
+        return view('pages.produk.daftarProduk.editProduk');
     }
 
     /**

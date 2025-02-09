@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class KalkulatorBelanjaController extends Controller
+class TempatBelanjaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('pages.belanja.kalkulatorBelanja.index');
+        return view('pages.belanja.tempatBelanja.index');
     }
 
     /**
@@ -19,7 +19,7 @@ class KalkulatorBelanjaController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.belanja.tempatBelanja.inputTempatBelanja');
     }
 
     /**
@@ -41,9 +41,9 @@ class KalkulatorBelanjaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit()
     {
-        //
+        return view('pages.belanja.tempatBelanja.editTempatBelanja');
     }
 
     /**

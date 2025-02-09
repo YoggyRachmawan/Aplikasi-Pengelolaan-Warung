@@ -7,7 +7,7 @@
             </ol>
             <div class="card mb-4">
                 <div class="card-header d-flex">
-                    <label> Satuan Produk </label>
+                    <label> Daftar Satuan Produk </label>
                     <button type="button" class="btn btn-primary btn-sm float-right ms-auto" data-bs-toggle="modal"
                         data-bs-target="#formTambahSatuanProduk"><i class="bi bi-file-plus"></i>
                         Tambah Satuan
@@ -19,26 +19,23 @@
                             <tr>
                                 <th class="text-start">No</th>
                                 <th>Satuan</th>
-                                <th class="text-center">Aksi</th>
+                                <th class="text-center">Opsi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="text-start">1.</td>
-                                <td>Dus</td>
-                                <td class="text-center">
-                                    <a href="" class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i>
-                                        Hapus</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-start">2.</td>
-                                <td>1/2 Dus</td>
-                                <td class="text-center">
-                                    <a href="" class="btn btn-danger btn-sm"><i class="bi bi-trash-fill"></i>
-                                        Hapus</a>
-                                </td>
-                            </tr>
+                            {{-- @php
+                                $no = 1;
+                            @endphp
+                            @foreach ($data as $item)
+                                <tr>
+                                    <td class="text-start">{{ $no++ }}.</td>
+                                    <td>{{ $item->nama_satuan }}</td>
+                                    <td class="text-center">
+                                        <a href="/hapusSatuanProduk/{{ $item->id }}" class="btn btn-danger btn-sm"
+                                            title='Hapus'><i class="bi bi-trash-fill"></i></a>
+                                    </td>
+                                </tr>
+                            @endforeach --}}
                         </tbody>
                     </table>
                 </div>
@@ -55,14 +52,17 @@
                     <h1 class="modal-title fs-5" id="formTambahSatuanProdukLabel">Form Tambah Satuan Produk</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body">
-                    <label for="satuan" class="form-label">Satuan</label>
-                    <input type="rext" class="form-control" id="satuan" value="">
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary float-right ms-auto"><i class="bi bi-save"></i>
-                        Simpan</button>
-                </div>
+                <form action="" method="post">
+                    @csrf
+                    <div class="modal-body">
+                        <label for="satuan" class="form-label">Satuan</label>
+                        <input type="rext" name="nama_satuan" class="form-control" id="satuan" autocomplete="off">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary float-right ms-auto"><i class="bi bi-save"></i>
+                            Simpan</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

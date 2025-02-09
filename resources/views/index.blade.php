@@ -45,12 +45,38 @@
     <script src="https://cdn.datatables.net/2.1.3/js/dataTables.bootstrap5.js"></script>
     {{-- select2 --}}
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    {{-- sweetalert2 --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     {{-- js --}}
     <script>
-        $(document).ready(function () {
+        // dataTable & select2
+        $(document).ready(function() {
             $("#tabelData").DataTable();
-            $('.js-example-basic-single').select2();
+            $(".js-example-basic-single").select2();
         });
+        // sweetAlert2
+        $(document).on('click', '#hapus', function(event) {
+            event.preventDefault();
+            let link = $(this).attr('href');
+            Swal.fire({
+                title: "Apakah anda yakin?",
+                text: "Data yang dihapus tidak bisa dikembalikan lagi!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Ya, hapus!",
+                cancelButtonText: "Batalkan",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({
+                        title: "Terhapus!",
+                        text: "Data berhasil dihapus.",
+                        icon: "success"
+                    });
+                }
+            });
+        })
     </script>
 </body>
 

@@ -5,11 +5,11 @@
             <h1 class="mt-4">Produk</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="/daftarProduk">Daftar Produk</a></li>
-                <li class="breadcrumb-item active">Edit Produk</li>
+                <li class="breadcrumb-item active">Produk Baru</li>
             </ol>
             <div class="card mb-4">
                 <div class="card-header d-flex">
-                    <label> Form Edit Produk</label>
+                    <label> Form Produk Baru</label>
                     <a href="/daftarProduk" type="button" class="btn btn-warning btn-sm float-right ms-auto"><i
                             class="bi bi-arrow-bar-left"></i>
                         Kembali
@@ -23,8 +23,7 @@
                                     <div class="row">
                                         <div class="col-lg-6">
                                             <label for="namaProduk" class="form-label">Nama Produk</label>
-                                            <input type="text" class="form-control form-control-sm" id="namaProduk"
-                                                value="Indomie Goreng">
+                                            <input type="text" class="form-control form-control-sm" id="namaProduk">
                                         </div>
                                         <div class="col-lg-6">
                                             <label for="fotoProduk" class="form-label">Foto Produk</label>
@@ -81,24 +80,6 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <td>Rp 111.000</td>
-                                                                <td>1 Dus</td>
-                                                                <td>
-                                                                    <a href="" class="btn btn-danger btn-sm"><i
-                                                                            class="bi bi-trash-fill"></i>
-                                                                        Hapus</a>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Rp 56.000</td>
-                                                                <td>1/2 Dus</td>
-                                                                <td>
-                                                                    <a href="" class="btn btn-danger btn-sm"><i
-                                                                            class="bi bi-trash-fill"></i>
-                                                                        Hapus</a>
-                                                                </td>
-                                                            </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -155,24 +136,6 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            <tr>
-                                                                <td>Rp 10.000</td>
-                                                                <td>3 Bungkus</td>
-                                                                <td>
-                                                                    <a href="" class="btn btn-danger btn-sm"><i
-                                                                            class="bi bi-trash-fill"></i>
-                                                                        Hapus</a>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>Rp 3.500</td>
-                                                                <td>1 Bungkus</td>
-                                                                <td>
-                                                                    <a href="" class="btn btn-danger btn-sm"><i
-                                                                            class="bi bi-trash-fill"></i>
-                                                                        Hapus</a>
-                                                                </td>
-                                                            </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>

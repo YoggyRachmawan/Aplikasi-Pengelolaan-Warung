@@ -2,41 +2,56 @@
     <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
         <div class="sb-sidenav-menu">
             <div class="nav">
-                <a class="nav-link mt-2 {{ request()->is('beranda') ? 'active' : '' }}" href="/beranda">
-                    <div class="sb-nav-link-icon"><i class="bi bi-house-fill"></i></div>
+                <a class="nav-link mt-3 {{ request()->is('beranda') ? 'active' : '' }}" href="/beranda">
+                    <div class="sb-nav-link-icon"><i class="bi bi-graph-up-arrow"></i></div>
                     Beranda
                 </a>
                 <div class="sb-sidenav-menu-heading">Belanja</div>
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link {{ request()->is('kalkulatorBelanja') ? 'active' : '' }}" href="/kalkulatorBelanja">
-                        <div class="sb-nav-link-icon"><i class="bi bi-building"></i></div>
-                        Kalkulator Belanja
+                    <a class="nav-link {{ request()->is('daftarBelanjaan', 'inputBelanjaan', 'editBelanjaan') ? 'active' : '' }}"
+                        href="/daftarBelanjaan">
+                        <div class="sb-nav-link-icon"><i class="bi bi-basket"></i></div>
+                        Belanjaan
                     </a>
-                    <a class="nav-link {{ request()->is('daftarBelanja', 'belanjaanBaru', 'inputNota', 'editNota', 'detailNota') ? 'active' : '' }}" href="/daftarBelanja">
-                        <div class="sb-nav-link-icon"><i class="bi bi-basket2-fill"></i></div>
-                        Daftar Belanja
+                    <a class="nav-link {{ request()->is('daftarTempatBelanja', 'inputTempatBelanja', 'editTempatBelanja') ? 'active' : '' }}"
+                        href="/daftarTempatBelanja">
+                        <div class="sb-nav-link-icon"><i class="bi bi-shop"></i></div>
+                        Tempat Belanja
                     </a>
                 </nav>
+
                 <div class="sb-sidenav-menu-heading">Produk</div>
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link {{ request()->is('daftarProduk', 'editProduk', 'detailProduk') ? 'active' : '' }}" href="/daftarProduk">
-                        <div class="sb-nav-link-icon"><i class="bi bi-box-seam-fill"></i></div>
+                    <a class="nav-link {{ request()->is('daftarProduk', 'inputProduk', 'editProduk') ? 'active' : '' }}"
+                        href="/daftarProduk">
+                        <div class="sb-nav-link-icon"><i class="bi bi-box-seam"></i></div>
                         Daftar Produk
                     </a>
-                    <a class="nav-link {{ request()->is('satuanProduk') ? 'active' : '' }}" href="/satuanProduk">
-                        <div class="sb-nav-link-icon"><i class="bi bi-list-ol"></i></div>
+                    <a class="nav-link {{ request()->is('daftarSatuanProduk') ? 'active' : '' }}"
+                        href="/daftarSatuanProduk">
+                        <div class="sb-nav-link-icon"><i class="bi bi-1-square"></i></div>
                         Satuan Produk
                     </a>
                 </nav>
-                <a class="nav-link {{ request()->is('keuangan') ? 'active' : '' }}" href="/keuangan">
-                    <div class="sb-nav-link-icon"><i class="bi bi-wallet-fill"></i></div>
-                    Keuangan
-                </a>
+
+                <div class="sb-sidenav-menu-heading">Keuangan</div>
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link {{ request()->is('keuanganHarian') ? 'active' : '' }}" href="/keuanganHarian">
+                        <div class="sb-nav-link-icon"><i class="bi bi-calendar2-date"></i></div>
+                        Harian
+                    </a>
+                    <a class="nav-link {{ request()->is('keuanganBulanan') ? 'active' : '' }}" href="/keuanganBulanan">
+                        <div class="sb-nav-link-icon"><i class="bi bi-calendar2-month"></i></div>
+                        Bulanan
+                    </a>
+                </nav>
             </div>
         </div>
         <div class="sb-sidenav-footer">
-            <div class="small">Masuk sebagai :</div>
-            Admin
+            <div class="small">Tanggal :</div>
+            @php
+                echo date('d/m/Y')
+            @endphp
         </div>
     </nav>
 </div>

@@ -9,9 +9,14 @@ class KeuanganController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function indexHarian()
     {
-        return view('pages.keuangan.index');
+        return view('pages.keuangan.harian');
+    }
+
+    public function indexBulanan()
+    {
+        return view('pages.keuangan.bulanan');
     }
 
     /**
