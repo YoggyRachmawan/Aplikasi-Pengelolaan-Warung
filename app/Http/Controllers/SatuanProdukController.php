@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Models\SatuanProduk;
+use Illuminate\Support\Facades\Redirect;
 
 class SatuanProdukController extends Controller
 {
@@ -11,7 +14,8 @@ class SatuanProdukController extends Controller
      */
     public function index()
     {
-        return view('pages.produk.satuanProduk.index');
+        $data = SatuanProduk::all();
+        return view('pages.produk.satuanProduk.index', ['data' => $data]);
     }
 
     /**
@@ -57,8 +61,9 @@ class SatuanProdukController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $data = SatuanProduk::find($id)->delete();
+        return Redirect::back();
     }
 }

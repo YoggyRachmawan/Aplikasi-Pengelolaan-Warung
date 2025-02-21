@@ -32,6 +32,7 @@ Route::get('/editProduk', [DaftarProdukController::class, 'edit']);
 
 // Satuan Produk //
 Route::get('/daftarSatuanProduk', [SatuanProdukController::class, 'index']);
+Route::get('/hapusSatuanProduk/{id}', [SatuanProdukController::class, 'destroy']);
 
 // Keuangan
 Route::get('/keuanganHarian', [KeuanganController::class, 'indexHarian']);

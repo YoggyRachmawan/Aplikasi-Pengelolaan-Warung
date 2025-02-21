@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <link rel="shortcut icon" href="{{ asset('assets/img/logo.png') }}" type="image/x-icon">
     <title>WarungKu</title>
     {{-- sbadmin --}}
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
@@ -72,8 +73,12 @@
                     Swal.fire({
                         title: "Terhapus!",
                         text: "Data berhasil dihapus.",
-                        icon: "success"
-                    });
+                        icon: "success",
+                        timer: 1000,
+                        showConfirmButton: false
+                    }).then(function(){
+                        window.location = link;
+                    })
                 }
             });
         })

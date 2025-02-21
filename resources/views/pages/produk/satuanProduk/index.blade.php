@@ -23,19 +23,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @php
+                            @php
                                 $no = 1;
                             @endphp
                             @foreach ($data as $item)
                                 <tr>
                                     <td class="text-start">{{ $no++ }}.</td>
-                                    <td>{{ $item->nama_satuan }}</td>
+                                    <td>{{ $item->satuan }}</td>
                                     <td class="text-center">
-                                        <a href="/hapusSatuanProduk/{{ $item->id }}" class="btn btn-danger btn-sm"
+                                        <a href="/hapusSatuanProduk/{{ $item->id }}" class="btn btn-danger btn-sm" id="hapus"
                                             title='Hapus'><i class="bi bi-trash-fill"></i></a>
                                     </td>
                                 </tr>
-                            @endforeach --}}
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
