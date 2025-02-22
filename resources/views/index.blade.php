@@ -74,14 +74,23 @@
                         title: "Terhapus!",
                         text: "Data berhasil dihapus.",
                         icon: "success",
-                        timer: 1000,
+                        timer: 999,
                         showConfirmButton: false
-                    }).then(function(){
+                    }).then(function() {
                         window.location = link;
                     })
                 }
             });
         })
+        @if (session('added'))
+            Swal.fire({
+                icon: "success",
+                title: "Berhasil",
+                text: "Data berhasil ditambahkan.",
+                showConfirmButton: false,
+                timer: 999
+            })
+        @endif
     </script>
 </body>
 
