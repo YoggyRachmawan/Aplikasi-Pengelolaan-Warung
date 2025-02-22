@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\SatuanProduk;
-use Illuminate\Support\Facades\Redirect;
 
 class SatuanProdukController extends Controller
 {
@@ -42,7 +41,7 @@ class SatuanProdukController extends Controller
             'created_at'    => now(),
             'updated_at'    => now()
         ]);
-        return Redirect::back()->with('added', true);
+        return back()->with('added', true);
     }
 
     /**
@@ -75,6 +74,6 @@ class SatuanProdukController extends Controller
     public function destroy($id)
     {
         $data = SatuanProduk::find($id)->delete();
-        return Redirect::back();
+        return back();
     }
 }
