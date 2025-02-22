@@ -12,7 +12,7 @@
                 <form action="/inputSatuanProduk" method="post">
                     @csrf
                     <div class="card-body">
-                        <input type="text" name="satuan" class="form-control" placeholder="Masukkan satuan produk baru" autocomplete="off">
+                        <input type="text" name="satuan" class="form-control @error('satuan') is-invalid @enderror" placeholder="Masukkan satuan produk baru" autocomplete="off">
                         @error('satuan')
                             <small style="color: red;">{{ $message }}</small>
                         @enderror
