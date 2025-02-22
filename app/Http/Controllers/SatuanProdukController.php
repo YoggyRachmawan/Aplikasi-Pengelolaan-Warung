@@ -14,7 +14,7 @@ class SatuanProdukController extends Controller
      */
     public function index()
     {
-        $data = SatuanProduk::all();
+        $data = SatuanProduk::orderBy('id','desc')->get();
         return view('pages.produk.satuanProduk.index', ['data' => $data]);
     }
 
@@ -31,7 +31,18 @@ class SatuanProdukController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'satuan' => 'required',
+            
+        ],[
+            'satuan.required' => 'Jangan kosong!'
+        ]);
+        SatuanProduk::create([
+            'satuan'        => $request->satuan,
+            'created_at'    => now(),
+            'updated_at'    => now()
+        ]);
+        return Redirect::back()->with('added', true);
     }
 
     /**

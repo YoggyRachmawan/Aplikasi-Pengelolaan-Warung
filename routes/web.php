@@ -31,6 +31,7 @@ Route::get('/inputProduk', [DaftarProdukController::class, 'create']);
 Route::get('/editProduk', [DaftarProdukController::class, 'edit']);
 
 // Satuan Produk //
+Route::post('/inputSatuanProduk', [SatuanProdukController::class, 'store']);
 Route::get('/daftarSatuanProduk', [SatuanProdukController::class, 'index']);
 Route::get('/hapusSatuanProduk/{id}', [SatuanProdukController::class, 'destroy']);
 
