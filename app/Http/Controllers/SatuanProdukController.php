@@ -36,6 +36,7 @@ class SatuanProdukController extends Controller
         ],[
             'satuan.required' => 'Jangan kosong!'
         ]);
+        
         SatuanProduk::create([
             'satuan'        => $request->satuan,
             'created_at'    => now(),
