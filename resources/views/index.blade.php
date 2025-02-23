@@ -70,14 +70,13 @@
                 cancelButtonText: "Batalkan",
             }).then((result) => {
                 if (result.isConfirmed) {
+                    window.location = link;
                     Swal.fire({
                         title: "Terhapus!",
                         text: "Data berhasil dihapus.",
                         icon: "success",
                         timer: 999,
                         showConfirmButton: false
-                    }).then(function() {
-                        window.location = link;
                     })
                 }
             });
@@ -87,6 +86,15 @@
                 icon: "success",
                 title: "Berhasil",
                 text: "Data berhasil ditambahkan.",
+                showConfirmButton: false,
+                timer: 999
+            })
+        @endif
+        @if (session('edited'))
+            Swal.fire({
+                icon: "success",
+                title: "Berhasil",
+                text: "Data berhasil diubah.",
                 showConfirmButton: false,
                 timer: 999
             })
