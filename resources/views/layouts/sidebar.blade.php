@@ -13,7 +13,7 @@
                         <div class="sb-nav-link-icon"><i class="bi bi-basket"></i></div>
                         Belanjaan
                     </a>
-                    <a class="nav-link {{ request()->is('daftarTempatBelanja', 'inputTempatBelanja', 'editTempatBelanja') ? 'active' : '' }}"
+                    <a class="nav-link {{ request()->is('daftarTempatBelanja', 'formTambahTempatBelanja', 'formEditTempatBelanja') ? 'active' : '' }}"
                         href="/daftarTempatBelanja">
                         <div class="sb-nav-link-icon"><i class="bi bi-shop"></i></div>
                         Tempat Belanja

@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\TempatBelanja;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Redirect;
 
 class TempatBelanjaController extends Controller
 {
@@ -11,7 +14,8 @@ class TempatBelanjaController extends Controller
      */
     public function index()
     {
-        return view('pages.belanja.tempatBelanja.index');
+        $data = TempatBelanja::orderBy('id', 'desc')->get();
+        return view('pages.belanja.tempatBelanja.index',  ['data' => $data]);
     }
 
     /**
@@ -19,7 +23,7 @@ class TempatBelanjaController extends Controller
      */
     public function create()
     {
-        return view('pages.belanja.tempatBelanja.inputTempatBelanja');
+        return view('pages.belanja.tempatBelanja.formTambahTempatBelanja');
     }
 
     /**
@@ -27,7 +31,24 @@ class TempatBelanjaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_tempat'   => 'required',
+            'kontak'        => 'required',
+            'alamat'        => 'required'
+        ], [
+            'nama_tempat.required'  => 'Jangan kosong!',
+            'kontak.required'       => 'Jangan kosong!',
+            'alamat.required'       => 'Jangan kosong!'
+        ]);
+
+        TempatBelanja::create([
+            'nama_tempat'   => $request->nama_tempat,
+            'kontak'        => $request->kontak,
+            'alamat'        => $request->alamat,
+            'created_at'    => now(),
+            'updated_at'    => now()
+        ]);
+        return redirect('/daftarTempatBelanja')->with('added', true);
     }
 
     /**
@@ -41,24 +62,42 @@ class TempatBelanjaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit()
+    public function edit($id)
     {
-        return view('pages.belanja.tempatBelanja.editTempatBelanja');
+        $data = TempatBelanja::find($id);
+        return view('pages.belanja.tempatBelanja.formEditTempatBelanja', ['data' => $data]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'nama_tempat'   => 'required',
+            'kontak'        => 'required',
+            'alamat'        => 'required'
+        ], [
+            'nama_tempat.required'  => 'Jangan kosong!',
+            'kontak.required'       => 'Jangan kosong!',
+            'alamat.required'       => 'Jangan kosong!'
+        ]);
+
+        TempatBelanja::find($id)->update([
+            'nama_tempat'   => $request->nama_tempat,
+            'kontak'        => $request->kontak,
+            'alamat'        => $request->alamat,
+            'updated_at'    => now()
+        ]);
+        return redirect('/daftarTempatBelanja')->with('edited', true);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $data = TempatBelanja::find($id)->delete();
+        return back();
     }
 }

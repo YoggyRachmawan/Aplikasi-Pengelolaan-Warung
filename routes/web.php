@@ -22,8 +22,11 @@ Route::get('/editBelanjaan', [BelanjaanController::class, 'edit']);
 
 // Tempat Belanja //
 Route::get('/daftarTempatBelanja', [TempatBelanjaController::class, 'index']);
-Route::get('/inputTempatBelanja', [TempatBelanjaController::class, 'create']);
-Route::get('/editTempatBelanja', [TempatBelanjaController::class, 'edit']);
+Route::get('/formTambahTempatBelanja', [TempatBelanjaController::class, 'create']);
+Route::post('/inputTempatBelanja', [TempatBelanjaController::class, 'store']);
+Route::get('/formEditTempatBelanja/{id}', [TempatBelanjaController::class, 'edit']);
+Route::post('/editTempatBelanja/{id}', [TempatBelanjaController::class, 'update']);
+Route::get('/hapusTempatBelanja/{id}', [TempatBelanjaController::class, 'destroy']);
 
 // Daftar Produk //
 Route::get('/daftarProduk', [DaftarProdukController::class, 'index']);
@@ -31,8 +34,8 @@ Route::get('/inputProduk', [DaftarProdukController::class, 'create']);
 Route::get('/editProduk', [DaftarProdukController::class, 'edit']);
 
 // Satuan Produk //
-Route::post('/inputSatuanProduk', [SatuanProdukController::class, 'store']);
 Route::get('/daftarSatuanProduk', [SatuanProdukController::class, 'index']);
+Route::post('/inputSatuanProduk', [SatuanProdukController::class, 'store']);
 Route::get('/hapusSatuanProduk/{id}', [SatuanProdukController::class, 'destroy']);
 
 // Keuangan

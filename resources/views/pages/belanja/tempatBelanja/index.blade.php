@@ -8,8 +8,9 @@
             <div class="card mb-4">
                 <div class="card-header d-flex">
                     <label>Daftar Tempat Belanja</label>
-                    <a href="/inputTempatBelanja" type="button" class="btn btn-primary btn-sm float-right ms-auto"><i class="bi bi-card-list"></i>
-                        Tempat Belanja Baru
+                    <a href="/formTambahTempatBelanja" type="button" class="btn btn-primary btn-sm float-right ms-auto"><i
+                            class="bi bi-card-list"></i>
+                        Tambah Tempat Belanja
                     </a>
                 </div>
                 <div class="card-body">
@@ -24,39 +25,24 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="text-center">1.</td>
-                                <td>Toko Abdi 2</td>
-                                <td class="text-center">082374072003</td>
-                                <td>Jl. Bukit Lebar No.130, Kel. Karang Raja, Kec. Prabumulih Timur, Kota Prabumulih</td>
-                                <td class="text-center">
-                                    <a href="/editTempatBelanja" class="btn btn-warning btn-sm"><i class="bi bi-pen-fill"></i> Edit</a>
-                                    <a href="" class="btn btn-danger btn-sm" id="hapus"><i class="bi bi-trash-fill"></i>
-                                        Hapus</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">2.</td>
-                                <td>Toko Alan</td>
-                                <td class="text-center">-</td>
-                                <td>Jl. Urip Sumoharjo, Kel. Wonosari, Kec. Prabumulih Utara, Kota Prabumulih</td>
-                                <td class="text-center">
-                                    <a href="/editTempatBelanja" class="btn btn-warning btn-sm"><i class="bi bi-pen-fill"></i> Edit</a>
-                                    <a href="" class="btn btn-danger btn-sm" id="hapus"><i class="bi bi-trash-fill"></i>
-                                        Hapus</a>
-                                </td>
-                            </tr>
+                            @php
+                                $no = 1;
+                            @endphp
+                            @foreach ($data as $item)
                                 <tr>
-                                <td class="text-center">3.</td>
-                                <td>Toko Ebit 2</td>
-                                <td class="text-center">-</td>
-                                <td>Jl. Urip Sumoharjo, Kel. Wonosari, Kec. Prabumulih Utara, Kota Prabumulih</td>
-                                <td class="text-center">
-                                    <a href="/editTempatBelanja" class="btn btn-warning btn-sm"><i class="bi bi-pen-fill"></i> Edit</a>
-                                    <a href="" class="btn btn-danger btn-sm" id="hapus"><i class="bi bi-trash-fill"></i>
-                                        Hapus</a>
-                                </td>
-                            </tr>
+                                    <td class="text-center">{{ $no++ }}.</td>
+                                    <td>{{ $item->nama_tempat }}</td>
+                                    <td class="text-center">{{ $item->kontak }}</td>
+                                    <td>{{ $item->alamat }}</td>
+                                    <td class="text-center">
+                                        <a href="/formEditTempatBelanja/{{ $item->id }}" class="btn btn-warning btn-sm"><i
+                                                class="bi bi-pen-fill"></i> Edit</a>
+                                        <a href="/hapusTempatBelanja/{{ $item->id }}" class="btn btn-danger btn-sm" id="hapus"><i
+                                                class="bi bi-trash-fill"></i>
+                                            Hapus</a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
