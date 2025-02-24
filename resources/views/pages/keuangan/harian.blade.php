@@ -6,12 +6,40 @@
             <ol class="breadcrumb mb-4">
             </ol>
             <div class="card mb-4">
+                <div class="card-header">
+                    <label> Form Tambah Keuangan </label>
+                </div>
+                <form action="/inputKeuanganHarian" method="post">
+                    @csrf
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <input type="date" name="tanggal"
+                                    class="form-control @error('tanggal') is-invalid @enderror"
+                                    placeholder="Masukkan omset harian" autocomplete="off" value={{ date('Y-m-d') }}>
+                                @error('tanggal')
+                                    <small style="color: red;">{{ $message }}</small>
+                                @enderror
+                            </div>
+                            <div class="col-lg-9">
+                                <input type="text" name="omset"
+                                    class="form-control @error('omset') is-invalid @enderror"
+                                    placeholder="Masukkan omset harian" autocomplete="off">
+                                @error('omset')
+                                    <small style="color: red;">{{ $message }}</small>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer d-flex">
+                        <button type="submit" class="btn btn-success float-right ms-auto btn-sm"><i class="bi bi-save"></i>
+                            Simpan</button>
+                    </div>
+                </form>
+            </div>
+            <div class="card mb-4">
                 <div class="card-header d-flex">
                     <label> Daftar Keuangan Harian </label>
-                    <button type="button" class="btn btn-primary btn-sm float-right ms-auto" data-bs-toggle="modal"
-                        data-bs-target="#formInputKeuangan"><i class="bi bi-cash"></i>
-                        Input Keuangan
-                    </button>
                 </div>
                 <div class="card-body">
                     <table id="tabelData" class="table table-bordered">
@@ -26,54 +54,27 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="text-center">1.</td>
-                                <td class="text-center">5/8/2024</td>
-                                <td class="text-center">Rp 100.000</td>
-                                <td class="text-center">Rp 85.000</td>
-                                <td class="text-center">Rp 15.000</td>
-                                <td class="text-center">
-                                    <a href="" class="btn btn-danger btn-sm" id="hapus"><i class="bi bi-trash-fill"></i>
-                                        Hapus</a>
-                                </td>
-                            </tr>
+                            @php
+                                $no = 1;
+                            @endphp
+                            @foreach ($data as $item)
+                                <tr>
+                                    <td class="text-center">{{ $no++ }}.</td>
+                                    <td class="text-center">{{ date('d-m-Y', strtotime($item->tanggal)) }}</td>
+                                    <td class="text-center">Rp {{ number_format($item->omset, 0, ',', '.') }}</td>
+                                    <td class="text-center">Rp {{ number_format($item->modal, 0, ',', '.') }}</td>
+                                    <td class="text-center">Rp {{ number_format($item->laba, 0, ',', '.') }}</td>
+                                    <td class="text-center">
+                                        <a href="/hapusKeuanganHarian/{{ $item->id }}" class="btn btn-danger btn-sm" id="hapus"><i
+                                                class="bi bi-trash-fill"></i>
+                                            Hapus</a>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </main>
-
-    {{-- modal form input keuangan --}}
-    <div class="modal fade" id="formInputKeuangan" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="formInputKeuanganLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="formInputKeuanganLabel">Form Input Keuangan</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                                <label for="tangal" class="form-label">Tanggal</label>
-                                <input type="date" class="form-control" id="tangal" value="8/8/2024">
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                                <label for="omset" class="form-label">Omset</label>
-                                <input type="number" class="form-control" id="omset" value="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-success float-right ms-auto"><i class="bi bi-save"></i>
-                        Simpan</button>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection

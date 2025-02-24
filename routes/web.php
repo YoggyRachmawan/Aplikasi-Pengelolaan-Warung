@@ -40,4 +40,6 @@ Route::get('/hapusSatuanProduk/{id}', [SatuanProdukController::class, 'destroy']
 
 // Keuangan
 Route::get('/keuanganHarian', [KeuanganController::class, 'indexHarian']);
+Route::post('/inputKeuanganHarian', [KeuanganController::class, 'store']);
+Route::get('/hapusKeuanganHarian/{id}', [KeuanganController::class, 'destroy']);
 Route::get('/keuanganBulanan', [KeuanganController::class, 'indexBulanan']);
