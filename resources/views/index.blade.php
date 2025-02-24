@@ -99,6 +99,15 @@
                 timer: 999
             })
         @endif
+        @if (session('cancelled'))
+            Swal.fire({
+                icon: "error",
+                title: "Gagal",
+                text: "Data gagal ditambahkan.",
+                showConfirmButton: false,
+                timer: 999
+            })
+        @endif
     </script>
 </body>
 
