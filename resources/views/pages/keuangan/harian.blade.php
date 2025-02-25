@@ -61,9 +61,9 @@
                                 <tr>
                                     <td class="text-center">{{ $no++ }}.</td>
                                     <td class="text-center">{{ date('d-m-Y', strtotime($item->tanggal)) }}</td>
-                                    <td class="text-center">Rp {{ number_format($item->omset, 0, ',', '.') }}</td>
-                                    <td class="text-center">Rp {{ number_format($item->modal, 0, ',', '.') }}</td>
-                                    <td class="text-center">Rp {{ number_format($item->laba, 0, ',', '.') }}</td>
+                                    <td>Rp {{ number_format($item->omset, 0, ',', '.') }}</td>
+                                    <td>Rp {{ number_format($item->modal, 0, ',', '.') }}</td>
+                                    <td>Rp {{ number_format($item->laba, 0, ',', '.') }}</td>
                                     <td class="text-center">
                                         <a href="/hapusKeuanganHarian/{{ $item->id }}" class="btn btn-danger btn-sm" id="hapus"><i
                                                 class="bi bi-trash-fill"></i>
