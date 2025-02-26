@@ -30,9 +30,9 @@
                                     <td class="text-center">{{ $no++ }}.</td>
                                     <td class="text-center">{{ $item->tahun }}</td>
                                     <td class="text-center">{{ $item->bulan }}</td>
-                                    <td class="text-center">Rp {{ number_format($item->total_omset, 0, ',', '.') }}</td>
-                                    <td class="text-center">Rp {{ number_format($item->total_modal, 0, ',', '.') }}</td>
-                                    <td class="text-center">Rp {{ number_format($item->total_laba, 0, ',', '.') }}</td>
+                                    <td class="text-center">Rp {{ number_format($item->omset, 0, ',', '.') }}</td>
+                                    <td class="text-center">Rp {{ number_format($item->modal, 0, ',', '.') }}</td>
+                                    <td class="text-center">Rp {{ number_format($item->laba, 0, ',', '.') }}</td>
                                 </tr>
                             @endforeach
                         </tbody>
