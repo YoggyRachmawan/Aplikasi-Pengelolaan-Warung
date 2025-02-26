@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\TotalKeuangan;
 use Illuminate\Http\Request;
 
 class BerandaController extends Controller
@@ -11,7 +12,8 @@ class BerandaController extends Controller
      */
     public function index()
     {
-        return view('pages.beranda.index');
+        $data = TotalKeuangan::all();
+        return view('pages.beranda.index', ['data' => $data]);
     }
 
     /**

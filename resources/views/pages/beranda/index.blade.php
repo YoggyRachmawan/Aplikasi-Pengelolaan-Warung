@@ -6,33 +6,38 @@
             <ol class="breadcrumb mb-4">
             </ol>
             <div class="row">
-                <div class="col-xl-4 col-md-4">
-                    <div class="card bg-danger text-white mb-4">
-                        <div class="card-body text-center display-6">Rp 100.000.000</div>
-                        <div class="card-footer d-flex align-items-center justify-content-between">
-                            <i class="bi bi-cash-stack"></i>
-                            <label class="small text-white fw-bold">Total Omset</label>
+                @foreach ($data as $item)
+                    <div class="col-xl-4 col-md-4">
+                        <div class="card bg-danger text-white mb-4">
+                            <div class="card-body text-center display-6">Rp
+                                {{ number_format($item->total_omset, 0, ',', '.') }}</div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <i class="bi bi-cash-stack"></i>
+                                <label class="small text-white fw-bold">Total Omset</label>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-4 col-md-4">
-                    <div class="card bg-primary text-white mb-4">
-                        <div class="card-body text-center display-6">Rp 85.000.000</div>
-                        <div class="card-footer d-flex align-items-center justify-content-between">
-                            <i class="bi bi-cash-stack"></i>
-                            <label class="small text-white fw-bold">Total Modal</label>
+                    <div class="col-xl-4 col-md-4">
+                        <div class="card bg-primary text-white mb-4">
+                            <div class="card-body text-center display-6">Rp
+                                {{ number_format($item->total_modal, 0, ',', '.') }}</div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <i class="bi bi-cash-stack"></i>
+                                <label class="small text-white fw-bold">Total Modal</label>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-4 col-md-4">
-                    <div class="card bg-success text-white mb-4">
-                        <div class="card-body text-center display-6">Rp 10.000.000</div>
-                        <div class="card-footer d-flex align-items-center justify-content-between">
-                            <i class="bi bi-cash-stack"></i>
-                            <label class="small text-white fw-bold">Total Laba</label>
+                    <div class="col-xl-4 col-md-4">
+                        <div class="card bg-success text-white mb-4">
+                            <div class="card-body text-center display-6">Rp
+                                {{ number_format($item->total_laba, 0, ',', '.') }}</div>
+                            <div class="card-footer d-flex align-items-center justify-content-between">
+                                <i class="bi bi-cash-stack"></i>
+                                <label class="small text-white fw-bold">Total Laba</label>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
             <div class="row">
                 <div class="col-xl-12">
