@@ -14,59 +14,31 @@
                         <thead>
                             <tr>
                                 <th class="text-center">No</th>
-                                <th class="text-center">Bulan</th>
                                 <th class="text-center">Tahun</th>
+                                <th class="text-center">Bulan</th>
                                 <th class="text-center">Omset</th>
                                 <th class="text-center">Modal</th>
                                 <th class="text-center">Laba</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="text-center">1.</td>
-                                <td class="text-center">Desember</td>
-                                <td class="text-center">2024</td>
-                                <td class="text-center">Rp 3.000.000</td>
-                                <td class="text-center">Rp 2.550.000</td>
-                                <td class="text-center">Rp 450.000</td>
-                            </tr>
+                            @php
+                                $no = 1;
+                            @endphp
+                            @foreach ($data as $item)
+                                <tr>
+                                    <td class="text-center">{{ $no++ }}.</td>
+                                    <td class="text-center">{{ $item->tahun }}</td>
+                                    <td class="text-center">{{ $item->bulan }}</td>
+                                    <td class="text-center">Rp {{ number_format($item->total_omset, 0, ',', '.') }}</td>
+                                    <td class="text-center">Rp {{ number_format($item->total_modal, 0, ',', '.') }}</td>
+                                    <td class="text-center">Rp {{ number_format($item->total_laba, 0, ',', '.') }}</td>
+                                </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
     </main>
-
-    {{-- modal form input keuangan --}}
-    <div class="modal fade" id="formInputKeuangan" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="formInputKeuanganLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="formInputKeuanganLabel">Form Input Keuangan</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                                <label for="tangal" class="form-label">Tanggal</label>
-                                <input type="date" class="form-control" id="tangal" value="8/8/2024">
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="mb-3">
-                                <label for="omset" class="form-label">Omset</label>
-                                <input type="number" class="form-control" id="omset" value="">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-success float-right ms-auto"><i class="bi bi-save"></i>
-                        Simpan</button>
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection
