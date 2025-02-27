@@ -17,8 +17,10 @@ Route::get('/beranda', [BerandaController::class, 'index']);
 
 // Belanjaan //
 Route::get('/daftarBelanjaan', [BelanjaanController::class, 'index']);
-Route::get('/inputBelanjaan', [BelanjaanController::class, 'create']);
-Route::get('/editBelanjaan', [BelanjaanController::class, 'edit']);
+Route::get('/formTambahBelanjaan', [BelanjaanController::class, 'create']);
+Route::post('/inputBelanjaan', [BelanjaanController::class, 'store']);
+Route::get('/formEditBelanjaan', [BelanjaanController::class, 'edit']);
+Route::get('/hapusBelanjaan/{id}', [BelanjaanController::class, 'destroy']);
 
 // Tempat Belanja //
 Route::get('/daftarTempatBelanja', [TempatBelanjaController::class, 'index']);

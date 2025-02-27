@@ -8,7 +8,7 @@
                 </a>
                 <div class="sb-sidenav-menu-heading">Belanja</div>
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link {{ request()->is('daftarBelanjaan', 'inputBelanjaan', 'editBelanjaan') ? 'active' : '' }}"
+                    <a class="nav-link {{ request()->is('daftarBelanjaan', 'formTambahBelanjaan', 'formEditBelanjaan') ? 'active' : '' }}"
                         href="/daftarBelanjaan">
                         <div class="sb-nav-link-icon"><i class="bi bi-basket"></i></div>
                         Belanjaan

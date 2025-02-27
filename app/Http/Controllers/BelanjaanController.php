@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Belanjaan;
+use App\Models\TempatBelanja;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class BelanjaanController extends Controller
 {
@@ -11,7 +14,11 @@ class BelanjaanController extends Controller
      */
     public function index()
     {
-        return view('pages.belanja.belanjaan.index');
+        $data = Belanjaan::select('belanjaan.id','tanggal', 'nota', 'nama_tempat', 'total_harga')
+                ->join('tempat_belanja', 'belanjaan.id_tempat_belanja', '=', 'tempat_belanja.id')
+                ->orderBy('tanggal', 'desc')
+                ->get();
+        return view('pages.belanja.belanjaan.index', ['data' => $data]);
     }
 
     /**
@@ -19,7 +26,8 @@ class BelanjaanController extends Controller
      */
     public function create()
     {
-        return view('pages.belanja.belanjaan.inputBelanjaan');
+        $data = TempatBelanja::select('id', 'nama_tempat')->get();
+        return view('pages.belanja.belanjaan.formTambahBelanjaan', ['data' => $data]);
     }
 
     /**
@@ -27,7 +35,34 @@ class BelanjaanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'tanggal'           => 'required|date',
+            'id_tempat_belanja' => 'required|numeric',
+            'nota'              => 'required|mimes:png,jpg,jpeg',
+            'total_harga'       => 'required|numeric'
+        ], [
+            'tanggal.required'              => 'Jangan kosong!',
+            'id_tempat_belanja.required'    => 'Jangan kosong!',
+            'nota.required'                 => 'Jangan kosong!',
+            'nota.mimes'                    => 'Format foto harus png, jpg atau jpeg!',
+            'total_harga.required'          => 'Jangan kosong!',
+            'total_harga.numeric'           => 'Hanya angka!'
+        ]);
+
+        $foto_nota = $request->file('nota');
+        $nama_foto_nota = $foto_nota->getClientOriginalName();
+        $path = 'foto_nota/'.$nama_foto_nota;
+        Storage::disk('public')->put($path, file_get_contents($foto_nota));
+
+        Belanjaan::create([
+            'tanggal'           => $request->tanggal,
+            'nota'              => $nama_foto_nota,
+            'id_tempat_belanja' => $request->id_tempat_belanja,
+            'total_harga'       => $request->total_harga,
+            'created_at'        => now(),
+            'updated_at'        => now()
+        ]);
+        return redirect('/daftarBelanjaan')->with('added', true);
     }
 
     /**
@@ -43,7 +78,7 @@ class BelanjaanController extends Controller
      */
     public function edit()
     {
-        return view('pages.belanja.belanjaan.editBelanjaan');
+        return view('pages.belanja.belanjaan.formEditBelanjaan');
     }
 
     /**
@@ -57,8 +92,11 @@ class BelanjaanController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $data = Belanjaan::find($id);
+        Storage::disk('public')->delete('foto_nota/'.$data['nota']);
+        $data->delete();
+        return back();
     }
 }
