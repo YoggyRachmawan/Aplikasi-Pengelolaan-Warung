@@ -46,7 +46,7 @@
                         <div class="mb-3">
                             <label for="notaBelanja" class="form-label">Nota</label>
                             <input type="file" name="nota"
-                                class="form-control form-control-sm @error('nota') is-invalid @enderror" id="notaBelanja" value="dd.jpg">
+                                class="form-control form-control-sm @error('nota') is-invalid @enderror" id="notaBelanja">
                             @error('nota')
                                 <small style="color: red;">{{ $message }}</small>
                             @enderror
