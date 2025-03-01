@@ -76,17 +76,47 @@ class BelanjaanController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit()
+    public function edit($id)
     {
-        return view('pages.belanja.belanjaan.formEditBelanjaan');
+        $tempatBelanja = TempatBelanja::select('id', 'nama_tempat')->get();
+        $data = Belanjaan::find($id);
+        return view('pages.belanja.belanjaan.formEditBelanjaan', ['data' => $data, 'tempatBelanja' => $tempatBelanja]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'tanggal'           => 'required|date',
+            'id_tempat_belanja' => 'required|numeric',
+            'nota'              => 'mimes:png,jpg,jpeg',
+            'total_harga'       => 'required|numeric'
+        ], [
+            'tanggal.required'              => 'Jangan kosong!',
+            'id_tempat_belanja.required'    => 'Jangan kosong!',
+            'nota.mimes'                    => 'Format foto harus png, jpg atau jpeg!',
+            'total_harga.required'          => 'Jangan kosong!',
+            'total_harga.numeric'           => 'Hanya angka!'
+        ]);
+
+        $foto_nota = $request->file('nota');
+        $nama_foto_nota = $foto_nota->getClientOriginalName();
+        $path = 'foto_nota/'.$nama_foto_nota;
+        Storage::disk('public')->put($path, file_get_contents($foto_nota));
+
+        $data = Belanjaan::find($id);
+        Storage::disk('public')->delete('foto_nota/'.$data['nota']);
+
+        $data->update([
+            'tanggal'           => $request->tanggal,
+            'nota'              => $nama_foto_nota,
+            'id_tempat_belanja' => $request->id_tempat_belanja,
+            'total_harga'       => $request->total_harga,
+            'updated_at'        => now()
+        ]);
+        return redirect('/daftarBelanjaan')->with('edited', true);
     }
 
     /**

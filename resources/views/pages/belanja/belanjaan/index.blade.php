@@ -64,7 +64,7 @@
                                     <td class="text-center">{{ $item->nama_tempat }}</td>
                                     <td class="text-center">Rp {{ number_format($item->total_harga, 0, ',', '.') }}</td>
                                     <td class="text-center">
-                                        <a href="/formEditBelanjaan" class="btn btn-warning btn-sm"><i
+                                        <a href="/formEditBelanjaan/{{ $item->id }}" class="btn btn-warning btn-sm"><i
                                                 class="bi bi-pen-fill"></i>
                                             Edit</a>
                                         <a href="/hapusBelanjaan/{{ $item->id }}" class="btn btn-danger btn-sm" id="hapus"><i
