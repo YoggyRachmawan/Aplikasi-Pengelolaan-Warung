@@ -2,7 +2,7 @@
 @section('content')
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Produk</h1>
+            <h1 class="mt-4">Katalog Produk</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="/daftarProduk">Daftar Produk</a></li>
                 <li class="breadcrumb-item active">Tambah Produk</li>
