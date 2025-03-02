@@ -2,7 +2,7 @@
 @section('content')
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Keuangan</h1>
+            <h1 class="mt-4">Bulanan</h1>
             <ol class="breadcrumb mb-4">
             </ol>
             <div class="card mb-4">
