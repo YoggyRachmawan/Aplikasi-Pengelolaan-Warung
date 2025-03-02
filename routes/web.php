@@ -5,7 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\KeuanganController;
 use App\Http\Controllers\BelanjaanController;
-use App\Http\Controllers\DaftarProdukController;
+use App\Http\Controllers\KatalogProdukController;
 use App\Http\Controllers\SatuanProdukController;
 use App\Http\Controllers\TempatBelanjaController;
 
@@ -31,10 +31,10 @@ Route::get('/formEditTempatBelanja/{id}', [TempatBelanjaController::class, 'edit
 Route::post('/editTempatBelanja/{id}', [TempatBelanjaController::class, 'update']);
 Route::get('/hapusTempatBelanja/{id}', [TempatBelanjaController::class, 'destroy']);
 
-// Daftar Produk //
-Route::get('/daftarProduk', [DaftarProdukController::class, 'index']);
-Route::get('/inputProduk', [DaftarProdukController::class, 'create']);
-Route::get('/editProduk', [DaftarProdukController::class, 'edit']);
+// Katalog Produk //
+Route::get('/daftarProduk', [KatalogProdukController::class, 'index']);
+Route::get('/formTambahProduk', [KatalogProdukController::class, 'create']);
+Route::get('/formEditProduk', [KatalogProdukController::class, 'edit']);
 
 // Satuan Produk //
 Route::get('/daftarSatuanProduk', [SatuanProdukController::class, 'index']);
@@ -42,7 +42,7 @@ Route::post('/inputSatuanProduk', [SatuanProdukController::class, 'store']);
 Route::get('/hapusSatuanProduk/{id}', [SatuanProdukController::class, 'destroy']);
 
 // Keuangan
-Route::get('/keuanganHarian', [KeuanganController::class, 'indexHarian']);
+Route::get('/daftarKeuanganHarian', [KeuanganController::class, 'indexHarian']);
 Route::post('/inputKeuanganHarian', [KeuanganController::class, 'store']);
 Route::get('/hapusKeuanganHarian/{id}', [KeuanganController::class, 'destroy']);
-Route::get('/keuanganBulanan', [KeuanganController::class, 'indexBulanan']);
+Route::get('/daftarKeuanganBulanan', [KeuanganController::class, 'indexBulanan']);
