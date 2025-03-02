@@ -21,14 +21,24 @@
                             <div class="card mb-4 text-bg-light">
                                 <div class="card-body">
                                     <div class="row">
-                                        <div class="col-lg-6">
+                                        <div class="col-lg-4">
                                             <label for="namaProduk" class="form-label">Nama Produk</label>
                                             <input type="text" class="form-control form-control-sm" id="namaProduk"
                                                 value="Indomie Goreng">
                                         </div>
-                                        <div class="col-lg-6">
-                                            <label for="fotoProduk" class="form-label">Foto Produk</label>
-                                            <input type="file" class="form-control form-control-sm" id="fotoProduk">
+                                        <div class="col-lg-8">
+                                            <div class="row">
+                                                <div class="col-lg-4">
+                                                    <label for="fotoProduk" class="form-label">Foto Produk</label>
+                                                    <i id="notaSaatIni"
+                                                        class="form-control form-control-sm">Indomie Goreng.jpg</i>
+                                                </div>
+                                                <div class="col-lg-8">
+                                                    <label for="fotoProduk" class="form-label">Foto Produk Pengganti</label>
+                                                    <input type="file" class="form-control form-control-sm"
+                                                        id="fotoProduk">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

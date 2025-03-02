@@ -2,15 +2,15 @@
 @section('content')
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Produk</h1>
+            <h1 class="mt-4">Katalog Produk</h1>
             <ol class="breadcrumb mb-4">
             </ol>
             <div class="card mb-4">
                 <div class="card-header d-flex">
                     <label>Daftar Produk</label>
-                    <a href="/inputProduk" type="button" class="btn btn-primary btn-sm float-right ms-auto"><i
+                    <a href="/formTambahProduk" type="button" class="btn btn-primary btn-sm float-right ms-auto"><i
                             class="bi bi-card-list"></i>
-                        Produk Baru
+                        Tambah Produk
                     </a>
                 </div>
                 <div class="card-body">
@@ -34,11 +34,29 @@
                                         data-bs-target="#staticBackdrop">
                                         <img src="{{ asset('assets/img/indomie_goreng.jpg') }}" style="width : 100px; ">
                                     </button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static"
+                                        data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog modal-lg">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Indomie Goreng
+                                                    </h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                        aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body text-center">
+                                                    <img src="{{ asset('assets/img/indomie_goreng.jpg') }}" class="w-100">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </td>
                                 <td>112.000 / Dus<br>56.000 / 1/2 Dus<br>29.000 / 1/4 Dus</td>
                                 <td>6.500 / 2 Bungkus<br>3.500 / Bungkus</td>
                                 <td class="text-center">
-                                    <a href="/editProduk" class="btn btn-warning btn-sm"><i class="bi bi-pen-fill"></i>
+                                    <a href="/formEditProduk" class="btn btn-warning btn-sm"><i class="bi bi-pen-fill"></i>
                                         Edit</a>
                                     <a href="" class="btn btn-danger btn-sm" id="hapus"><i
                                             class="bi bi-trash-fill"></i>
@@ -51,20 +69,4 @@
             </div>
         </div>
     </main>
-
-        <!-- Modal -->
-    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-        aria-labelledby="staticBackdropLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Indomie Goreng</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <img src="{{ asset('assets/img/indomie_goreng.jpg') }}" class="w-100">
-                </div>
-            </div>
-        </div>
-    </div>
 @endsection

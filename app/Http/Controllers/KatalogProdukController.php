@@ -5,14 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\M_Satuan;
 use Illuminate\Http\Request;
 
-class DaftarProdukController extends Controller
+class KatalogProdukController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('pages.produk.daftarProduk.index');
+        return view('pages.produk.katalogProduk.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class DaftarProdukController extends Controller
      */
     public function create()
     {
-        return view('pages.produk.daftarProduk.inputProduk');
+        return view('pages.produk.katalogProduk.formTambahProduk');
     }
 
     /**
@@ -44,7 +44,7 @@ class DaftarProdukController extends Controller
      */
     public function edit()
     {
-        return view('pages.produk.daftarProduk.editProduk');
+        return view('pages.produk.katalogProduk.formEditProduk');
     }
 
     /**

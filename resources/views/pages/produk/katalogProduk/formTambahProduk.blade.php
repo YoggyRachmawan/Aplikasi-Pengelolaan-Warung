@@ -5,11 +5,11 @@
             <h1 class="mt-4">Produk</h1>
             <ol class="breadcrumb mb-4">
                 <li class="breadcrumb-item"><a href="/daftarProduk">Daftar Produk</a></li>
-                <li class="breadcrumb-item active">Produk Baru</li>
+                <li class="breadcrumb-item active">Tambah Produk</li>
             </ol>
             <div class="card mb-4">
                 <div class="card-header d-flex">
-                    <label> Form Produk Baru</label>
+                    <label> Form Tambah Produk</label>
                     <a href="/daftarProduk" type="button" class="btn btn-warning btn-sm float-right ms-auto"><i
                             class="bi bi-arrow-bar-left"></i>
                         Kembali
