@@ -22,10 +22,10 @@
 
                 <div class="sb-sidenav-menu-heading">Produk</div>
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link {{ request()->is('daftarProduk', 'inputProduk', 'editProduk') ? 'active' : '' }}"
+                    <a class="nav-link {{ request()->is('daftarProduk', 'formTambahProduk', 'formEditProduk') ? 'active' : '' }}"
                         href="/daftarProduk">
                         <div class="sb-nav-link-icon"><i class="bi bi-box-seam"></i></div>
-                        Daftar Produk
+                        Katalog Produk
                     </a>
                     <a class="nav-link {{ request()->is('daftarSatuanProduk') ? 'active' : '' }}"
                         href="/daftarSatuanProduk">
@@ -36,11 +36,11 @@
 
                 <div class="sb-sidenav-menu-heading">Keuangan</div>
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link {{ request()->is('keuanganHarian') ? 'active' : '' }}" href="/keuanganHarian">
+                    <a class="nav-link {{ request()->is('daftarKeuanganHarian') ? 'active' : '' }}" href="/daftarKeuanganHarian">
                         <div class="sb-nav-link-icon"><i class="bi bi-calendar2-date"></i></div>
                         Harian
                     </a>
-                    <a class="nav-link {{ request()->is('keuanganBulanan') ? 'active' : '' }}" href="/keuanganBulanan">
+                    <a class="nav-link {{ request()->is('daftarKeuanganBulanan') ? 'active' : '' }}" href="/daftarKeuanganBulanan">
                         <div class="sb-nav-link-icon"><i class="bi bi-calendar2-month"></i></div>
                         Bulanan
                     </a>
