@@ -42,21 +42,25 @@
                                                 <div class="card-header">
                                                     <label> Modal</label>
                                                 </div>
-                                                <form>
+                                                <form action="/inputHargaModal" method="post" id="inputHargaModal">
+                                                    @csrf
                                                     <div class="card-body">
                                                         <div class="mb-3">
                                                             <label for="harga" class="form-label">Harga</label>
-                                                            <input type="number" class="form-control form-control-sm"
-                                                                id="harga">
+                                                            <input type="text" name="harga"
+                                                                class="form-control form-control-sm"
+                                                                id="harga" autocomplete="off">
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="tempatBelanja" class="form-label">Satuan</label>
-                                                            <select class="js-example-basic-single" style="width: 100%"
-                                                                name="state">
+                                                            <select
+                                                                class="js-example-basic-single"
+                                                                style="width: 100%" name="satuan">
                                                                 <option value="">--Pilih Satuan--</option>
-                                                                <option value="AL">1 Bungkus</option>
-                                                                <option value="WY">1 Dus</option>
-                                                                <option value="AL">1 Lusin</option>
+                                                                @foreach ($dataSatuanProduk as $item)
+                                                                    <option value="{{ $item->satuan }}">{{ $item->satuan }}
+                                                                    </option>
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                     </div>
@@ -79,7 +83,7 @@
                                                                 <th>Opsi</th>
                                                             </tr>
                                                         </thead>
-                                                        <tbody>
+                                                        <tbody id="tabelHargaModal">
                                                         </tbody>
                                                     </table>
                                                 </div>
@@ -98,21 +102,25 @@
                                                 <div class="card-header">
                                                     <label> Jual</label>
                                                 </div>
-                                                <form>
+                                                <form action="/inputHargaJual" method="post" id="inputHargaJual">
+                                                    @csrf
                                                     <div class="card-body">
                                                         <div class="mb-3">
                                                             <label for="harga" class="form-label">Harga</label>
-                                                            <input type="number" class="form-control form-control-sm"
-                                                                id="harga">
+                                                            <input type="text" name="harga"
+                                                                class="form-control form-control-sm"
+                                                                id="harga" autocomplete="off">
                                                         </div>
                                                         <div class="mb-3">
                                                             <label for="tempatBelanja" class="form-label">Satuan</label>
-                                                            <select class="js-example-basic-single" style="width: 100%"
-                                                                name="state">
+                                                            <select
+                                                                class="js-example-basic-single"
+                                                                style="width: 100%" name="satuan">
                                                                 <option value="">--Pilih Satuan--</option>
-                                                                <option value="AL">1 Bungkus</option>
-                                                                <option value="WY">1 Dus</option>
-                                                                <option value="AL">1 Lusin</option>
+                                                                @foreach ($dataSatuanProduk as $item)
+                                                                    <option value="{{ $item->satuan }}">{{ $item->satuan }}
+                                                                    </option>
+                                                                @endforeach
                                                             </select>
                                                         </div>
                                                     </div>
@@ -135,7 +143,7 @@
                                                                 <th>Opsi</th>
                                                             </tr>
                                                         </thead>
-                                                        <tbody>
+                                                        <tbody id="tabelHargaJual">
                                                         </tbody>
                                                     </table>
                                                 </div>

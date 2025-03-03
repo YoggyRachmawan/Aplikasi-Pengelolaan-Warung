@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
@@ -55,6 +56,7 @@
             $("#tabelData").DataTable();
             $(".js-example-basic-single").select2();
         });
+
         // sweetAlert2
         $(document).on('click', '#hapus', function(event) {
             event.preventDefault();
@@ -81,6 +83,8 @@
                 }
             });
         })
+
+        // Tambah
         @if (session('added'))
             Swal.fire({
                 icon: "success",
@@ -90,6 +94,8 @@
                 timer: 999
             })
         @endif
+
+        // Edit
         @if (session('edited'))
             Swal.fire({
                 icon: "success",
@@ -99,6 +105,8 @@
                 timer: 999
             })
         @endif
+
+        // Gagal
         @if (session('cancelled'))
             Swal.fire({
                 icon: "error",
@@ -108,6 +116,158 @@
                 timer: 999
             })
         @endif
+
+        // Harga Modal
+        $(document).ready(function() {
+            $.ajax({
+                url: '/daftarHargaModal',
+                method: 'GET',
+                success: function(response) {
+                    response.forEach(function(item, index) {
+                        $('#tabelHargaModal').append(`
+                            <tr data-index="${index}">
+                                <td>Rp ${item.harga}</td>
+                                <td>${item.satuan}</td>
+                                <td>
+                                    <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-delete" data-id="${index}" id="hapusHargaModal">
+                                        <i class="bi bi-trash-fill"></i> Hapus
+                                    </a>
+                                </td>
+                            </tr>
+                        `);
+                    });
+                }
+            });
+
+            $('#inputHargaModal').submit(function(e) {
+                e.preventDefault();
+                let form = $(this);
+                let url = form.attr('action');
+                let method = form.attr('method');
+                let data = form.serialize();
+                $.ajax({
+                    type: method,
+                    url: url,
+                    data: data,
+                    success: function(response) {
+                        $('#tabelHargaModal').empty();
+                        response.forEach(function(item, index) {
+                            $('#tabelHargaModal').append(`
+                            <tr>
+                                <td>Rp ${item.harga}</td>
+                                <td>${item.satuan}</td>
+                                <td>
+                                    <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-delete" data-id="${index}" id="hapusHargaModal">
+                                        <i class="bi bi-trash-fill"></i> Hapus
+                                    </a>
+                                </td>
+                            </tr>
+                            `);
+                        });
+                    }
+                });
+            });
+
+            $(document).on('click', '#hapusHargaModal', function(e) {
+                e.preventDefault();
+                let index = $(this).data('id');
+
+                $.ajax({
+                    url: `/hapusHargaModal/${index}`,
+                    type: 'POST',
+                    data: {
+                        _token: $('meta[name="csrf-token"]').attr(
+                            'content')
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            $('#tabelHargaModal tr').eq(index).remove();
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function() {
+                        alert('Terjadi kesalahan saat menghapus!');
+                    }
+                });
+            });
+        });
+
+        // Harga Jual
+        $(document).ready(function() {
+            $.ajax({
+                url: '/daftarHargaJual',
+                method: 'GET',
+                success: function(response) {
+                    response.forEach(function(item, index) {
+                        $('#tabelHargaJual').append(`
+                            <tr data-index="${index}">
+                                <td>Rp ${item.harga}</td>
+                                <td>${item.satuan}</td>
+                                <td>
+                                    <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-delete" data-id="${index}" id="hapusHargaJual">
+                                        <i class="bi bi-trash-fill"></i> Hapus
+                                    </a>
+                                </td>
+                            </tr>
+                        `);
+                    });
+                }
+            });
+
+            $('#inputHargaJual').submit(function(e) {
+                e.preventDefault();
+                let form = $(this);
+                let url = form.attr('action');
+                let method = form.attr('method');
+                let data = form.serialize();
+                $.ajax({
+                    type: method,
+                    url: url,
+                    data: data,
+                    success: function(response) {
+                        $('#tabelHargaJual').empty();
+                        response.forEach(function(item, index) {
+                            $('#tabelHargaJual').append(`
+                            <tr>
+                                <td>Rp ${item.harga}</td>
+                                <td>${item.satuan}</td>
+                                <td>
+                                    <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-delete" data-id="${index}" id="hapusHargaJual">
+                                        <i class="bi bi-trash-fill"></i> Hapus
+                                    </a>
+                                </td>
+                            </tr>
+                            `);
+                        });
+                    }
+                });
+            });
+
+            $(document).on('click', '#hapusHargaJual', function(e) {
+                e.preventDefault();
+                let index = $(this).data('id');
+
+                $.ajax({
+                    url: `/hapusHargaJual/${index}`,
+                    type: 'POST',
+                    data: {
+                        _token: $('meta[name="csrf-token"]').attr(
+                            'content')
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            $('#tabelHargaJual tr').eq(index).remove();
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function() {
+                        alert('Terjadi kesalahan saat menghapus!');
+                    }
+                });
+            });
+        });
     </script>
 </body>
 

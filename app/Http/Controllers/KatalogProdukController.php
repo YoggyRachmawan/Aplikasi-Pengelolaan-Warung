@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\M_Satuan;
+use App\Models\SatuanProduk;
 use Illuminate\Http\Request;
 
 class KatalogProdukController extends Controller
@@ -20,7 +21,8 @@ class KatalogProdukController extends Controller
      */
     public function create()
     {
-        return view('pages.produk.katalogProduk.formTambahProduk');
+        $dataSatuanProduk = SatuanProduk::all();
+        return view('pages.produk.katalogProduk.formTambahProduk', ['dataSatuanProduk' => $dataSatuanProduk]);
     }
 
     /**

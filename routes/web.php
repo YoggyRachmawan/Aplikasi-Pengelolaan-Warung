@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\KeuanganController;
 use App\Http\Controllers\BelanjaanController;
+use App\Http\Controllers\HargaProdukController;
 use App\Http\Controllers\KatalogProdukController;
 use App\Http\Controllers\SatuanProdukController;
 use App\Http\Controllers\TempatBelanjaController;
@@ -35,6 +36,14 @@ Route::get('/hapusTempatBelanja/{id}', [TempatBelanjaController::class, 'destroy
 Route::get('/daftarProduk', [KatalogProdukController::class, 'index']);
 Route::get('/formTambahProduk', [KatalogProdukController::class, 'create']);
 Route::get('/formEditProduk', [KatalogProdukController::class, 'edit']);
+
+// Harga Produk
+Route::get('/daftarHargaModal', [HargaProdukController::class, 'indexHargaModal']);
+Route::post('/inputHargaModal', [HargaProdukController::class, 'storeHargaModal']);
+Route::post('/hapusHargaModal/{index}', [HargaProdukController::class, 'destroyHargaModal']);
+Route::get('/daftarHargaJual', [HargaProdukController::class, 'indexHargaJual']);
+Route::post('/inputHargaJual', [HargaProdukController::class, 'storeHargaJual']);
+Route::post('/hapusHargaJual/{index}', [HargaProdukController::class, 'destroyHargaJual']);
 
 // Satuan Produk //
 Route::get('/daftarSatuanProduk', [SatuanProdukController::class, 'index']);
