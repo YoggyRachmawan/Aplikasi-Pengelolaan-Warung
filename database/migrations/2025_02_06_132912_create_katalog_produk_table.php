@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('katalog_produk', function (Blueprint $table) {
             $table->id();
+            $table->string('nomor_produk');
             $table->string('nama_produk');
             $table->string('foto_produk');
             $table->timestamps();
