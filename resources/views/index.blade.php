@@ -123,10 +123,16 @@
                 url: '/daftarHargaModal',
                 method: 'GET',
                 success: function(response) {
+                    let formatter = new Intl.NumberFormat('id-ID', {
+                            style: 'decimal',
+                            minimumFractionDigits: 0, 
+                            maximumFractionDigits: 0, 
+                        });
                     response.forEach(function(item, index) {
+                        let formattedHarga = 'Rp ' + formatter.format(item.harga);
                         $('#tabelHargaModal').append(`
                             <tr data-index="${index}">
-                                <td>Rp ${item.harga}</td>
+                                <td>${formattedHarga}</td>
                                 <td>${item.satuan}</td>
                                 <td>
                                     <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-delete" data-id="${index}" id="hapusHargaModal">
@@ -151,10 +157,16 @@
                     data: data,
                     success: function(response) {
                         $('#tabelHargaModal').empty();
+                        let formatter = new Intl.NumberFormat('id-ID', {
+                            style: 'decimal',
+                            minimumFractionDigits: 0, 
+                            maximumFractionDigits: 0, 
+                        });
                         response.forEach(function(item, index) {
+                            let formattedHarga = 'Rp ' + formatter.format(item.harga);
                             $('#tabelHargaModal').append(`
                             <tr>
-                                <td>Rp ${item.harga}</td>
+                                <td>${formattedHarga}</td>
                                 <td>${item.satuan}</td>
                                 <td>
                                     <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-delete" data-id="${index}" id="hapusHargaModal">
@@ -199,10 +211,16 @@
                 url: '/daftarHargaJual',
                 method: 'GET',
                 success: function(response) {
+                    let formatter = new Intl.NumberFormat('id-ID', {
+                            style: 'decimal',
+                            minimumFractionDigits: 0, 
+                            maximumFractionDigits: 0, 
+                        });
                     response.forEach(function(item, index) {
+                        let formattedHarga = 'Rp ' + formatter.format(item.harga);
                         $('#tabelHargaJual').append(`
                             <tr data-index="${index}">
-                                <td>Rp ${item.harga}</td>
+                                <td>${formattedHarga}</td>
                                 <td>${item.satuan}</td>
                                 <td>
                                     <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-delete" data-id="${index}" id="hapusHargaJual">
@@ -227,10 +245,16 @@
                     data: data,
                     success: function(response) {
                         $('#tabelHargaJual').empty();
+                        let formatter = new Intl.NumberFormat('id-ID', {
+                            style: 'decimal',
+                            minimumFractionDigits: 0, 
+                            maximumFractionDigits: 0, 
+                        });
                         response.forEach(function(item, index) {
+                            let formattedHarga = 'Rp ' + formatter.format(item.harga);
                             $('#tabelHargaJual').append(`
                             <tr>
-                                <td>Rp ${item.harga}</td>
+                                <td>${formattedHarga}</td>
                                 <td>${item.satuan}</td>
                                 <td>
                                     <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-delete" data-id="${index}" id="hapusHargaJual">
