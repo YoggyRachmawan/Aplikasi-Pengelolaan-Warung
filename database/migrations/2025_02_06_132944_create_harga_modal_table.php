@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('harga_modal', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_produk');
-            $table->decimal('harga_modal');
-            $table->integer('id_satuan');
+            $table->integer('id_produk');
+            $table->bigInteger('harga_modal');
+            $table->string('satuan_produk');
             $table->timestamps();
         });
     }
