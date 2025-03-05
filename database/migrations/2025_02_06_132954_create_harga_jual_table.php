@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('harga_jual', function (Blueprint $table) {
             $table->id();
             $table->string('nomor_produk');
-            $table->bigInteger('harga_modal');
+            $table->bigInteger('harga_jual');
             $table->string('satuan_produk');
             $table->timestamps();
         });
