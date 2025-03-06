@@ -16,149 +16,152 @@
                     </a>
                 </div>
                 <div class="card-body">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card mb-4 text-bg-light">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <label for="namaProduk" class="form-label">Nama Produk</label>
-                                            <input type="text" class="form-control form-control-sm" id="namaProduk">
+                    <div class="card mb-4 text-bg-light">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <label> Modal</label>
                                         </div>
-                                        <div class="col-lg-6">
-                                            <label for="fotoProduk" class="form-label">Foto Produk</label>
-                                            <input type="file" class="form-control form-control-sm" id="fotoProduk">
-                                        </div>
+                                        <form action="/inputHargaModal" method="post" id="inputHargaModal">
+                                            @csrf
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label for="harga" class="form-label">Harga</label>
+                                                    <input type="text" name="harga"
+                                                        class="form-control form-control-sm" id="harga"
+                                                        autocomplete="off">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="tempatBelanja" class="form-label">Satuan</label>
+                                                    <select class="js-example-basic-single" style="width: 100%"
+                                                        name="satuan">
+                                                        <option value="">--Pilih Satuan--</option>
+                                                        @foreach ($dataSatuanProduk as $item)
+                                                            <option value="{{ $item->satuan }}">{{ $item->satuan }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer text-muted">
+                                                <button type="submit" class="btn btn-primary"><i
+                                                        class="bi bi-journal-plus"></i>
+                                                    Tambahkan</button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="card mb-4 text-bg-light">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-lg-3">
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    <label> Modal</label>
-                                                </div>
-                                                <form action="/inputHargaModal" method="post" id="inputHargaModal">
-                                                    @csrf
-                                                    <div class="card-body">
-                                                        <div class="mb-3">
-                                                            <label for="harga" class="form-label">Harga</label>
-                                                            <input type="text" name="harga"
-                                                                class="form-control form-control-sm"
-                                                                id="harga" autocomplete="off">
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="tempatBelanja" class="form-label">Satuan</label>
-                                                            <select
-                                                                class="js-example-basic-single"
-                                                                style="width: 100%" name="satuan">
-                                                                <option value="">--Pilih Satuan--</option>
-                                                                @foreach ($dataSatuanProduk as $item)
-                                                                    <option value="{{ $item->satuan }}">{{ $item->satuan }}
-                                                                    </option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-footer text-muted">
-                                                        <button type="submit" class="btn btn-primary"><i
-                                                                class="bi bi-journal-plus"></i>
-                                                            Tambahkan</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-9">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <table class="table table-bordered text-center">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Harga Modal</th>
-                                                                <th>Satuan</th>
-                                                                <th>Opsi</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="tabelHargaModal">
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="card text-bg-light">
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-lg-3">
-                                            <div class="card">
-                                                <div class="card-header">
-                                                    <label> Jual</label>
-                                                </div>
-                                                <form action="/inputHargaJual" method="post" id="inputHargaJual">
-                                                    @csrf
-                                                    <div class="card-body">
-                                                        <div class="mb-3">
-                                                            <label for="harga" class="form-label">Harga</label>
-                                                            <input type="text" name="harga"
-                                                                class="form-control form-control-sm"
-                                                                id="harga" autocomplete="off">
-                                                        </div>
-                                                        <div class="mb-3">
-                                                            <label for="tempatBelanja" class="form-label">Satuan</label>
-                                                            <select
-                                                                class="js-example-basic-single"
-                                                                style="width: 100%" name="satuan">
-                                                                <option value="">--Pilih Satuan--</option>
-                                                                @foreach ($dataSatuanProduk as $item)
-                                                                    <option value="{{ $item->satuan }}">{{ $item->satuan }}
-                                                                    </option>
-                                                                @endforeach
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-footer text-muted">
-                                                        <button type="submit" class="btn btn-primary"><i
-                                                                class="bi bi-journal-plus"></i>
-                                                            Tambahkan</button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-9">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <table class="table table-bordered text-center">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Harga Jual</th>
-                                                                <th>Satuan</th>
-                                                                <th>Opsi</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody id="tabelHargaJual">
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
+                                <div class="col-lg-9">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <table class="table table-bordered text-center">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Harga Modal</th>
+                                                        <th>Satuan</th>
+                                                        <th>Opsi</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tabelHargaModal">
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <div class="card mb-4 text-bg-light">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="card">
+                                        <div class="card-header">
+                                            <label> Jual</label>
+                                        </div>
+                                        <form action="/inputHargaJual" method="post" id="inputHargaJual">
+                                            @csrf
+                                            <div class="card-body">
+                                                <div class="mb-3">
+                                                    <label for="harga" class="form-label">Harga</label>
+                                                    <input type="text" name="harga"
+                                                        class="form-control form-control-sm" id="harga"
+                                                        autocomplete="off">
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="tempatBelanja" class="form-label">Satuan</label>
+                                                    <select class="js-example-basic-single" style="width: 100%"
+                                                        name="satuan">
+                                                        <option value="">--Pilih Satuan--</option>
+                                                        @foreach ($dataSatuanProduk as $item)
+                                                            <option value="{{ $item->satuan }}">{{ $item->satuan }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="card-footer text-muted">
+                                                <button type="submit" class="btn btn-primary"><i
+                                                        class="bi bi-journal-plus"></i>
+                                                    Tambahkan</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="col-lg-9">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <table class="table table-bordered text-center">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Harga Jual</th>
+                                                        <th>Satuan</th>
+                                                        <th>Opsi</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tabelHargaJual">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <form action="/inputProduk" method="post" enctype="multipart/form-data">
+                        @csrf
+                        <div class="card text-bg-light">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <label for="namaProduk" class="form-label">Nama Produk</label>
+                                        <input type="text" name="nama_produk"
+                                            class="form-control form-control-sm @error('nama_produk') is-invalid @enderror"
+                                            id="namaProduk" value="{{ old('nama_produk') }}" autocomplete="off">
+                                        @error('nama_produk')
+                                            <small style="color: red;">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label for="fotoProduk" class="form-label">Foto Produk</label>
+                                        <input type="file" name="foto_produk"
+                                            class="form-control form-control-sm @error('foto_produk') is-invalid @enderror"
+                                            id="fotoProduk">
+                                        @error('foto_produk')
+                                            <small style="color: red;">{{ $message }}</small>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                 </div>
                 <div class="card-footer d-flex">
                     <button type="submit" class="btn btn-success float-right ms-auto"><i class="bi bi-save"></i>
                         Simpan</button>
                 </div>
+                </form>
             </div>
         </div>
     </main>

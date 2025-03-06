@@ -35,6 +35,7 @@ Route::get('/hapusTempatBelanja/{id}', [TempatBelanjaController::class, 'destroy
 // Katalog Produk //
 Route::get('/daftarProduk', [KatalogProdukController::class, 'index']);
 Route::get('/formTambahProduk', [KatalogProdukController::class, 'create']);
+Route::post('/inputProduk', [KatalogProdukController::class, 'store']);
 Route::get('/formEditProduk', [KatalogProdukController::class, 'edit']);
 
 // Harga Produk
