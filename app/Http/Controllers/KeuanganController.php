@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Keuangan;
-use App\Models\KeuanganBulanan;
+use App\Models\ViewKeuanganBulanan;
 use Illuminate\Http\Request;
 
 class KeuanganController extends Controller
@@ -19,7 +19,7 @@ class KeuanganController extends Controller
 
     public function indexBulanan()
     {
-        $data = KeuanganBulanan::orderBy('tahun', 'desc')->orderBy('bulan', 'desc')->get();
+        $data = ViewKeuanganBulanan::orderBy('tahun', 'desc')->orderBy('bulan', 'desc')->get();
         return view('pages.keuangan.bulanan', ['data' => $data]);
     }
 
