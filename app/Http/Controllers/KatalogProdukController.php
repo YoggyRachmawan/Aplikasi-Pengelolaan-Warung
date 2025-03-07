@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\KatalogProduk;
 use App\Models\TempatBelanja;
 use App\Http\Controllers\Controller;
+use App\Models\ViewKatalogProduk;
 use Illuminate\Support\Facades\Storage;
 
 class KatalogProdukController extends Controller
@@ -19,7 +20,8 @@ class KatalogProdukController extends Controller
      */
     public function index()
     {
-        return view('pages.produk.katalogProduk.index');
+        $data = ViewKatalogProduk::all();
+        return view('pages.produk.katalogProduk.index', ['data' => $data]);
     }
 
     /**
