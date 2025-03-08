@@ -40,7 +40,8 @@ class KatalogProdukController extends Controller
     {
         // nomor_produk
         $idKatalogProduk = KatalogProduk::max('id');
-        $nomorProduk = 'PRD' . '/' . date('d-m-Y') . '/' . $idKatalogProduk + 1;
+        $nomorProduk = 'PRD' . '-' . date('dmY') . '-' . $idKatalogProduk + 1;
+        dd($nomorProduk);
 
         // validasi katalog_produk
         $validasi = $request->validate([
