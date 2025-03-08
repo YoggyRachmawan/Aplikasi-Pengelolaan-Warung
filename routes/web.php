@@ -37,6 +37,7 @@ Route::get('/daftarProduk', [KatalogProdukController::class, 'index']);
 Route::get('/formTambahProduk', [KatalogProdukController::class, 'create']);
 Route::post('/inputProduk', [KatalogProdukController::class, 'store']);
 Route::get('/formEditProduk', [KatalogProdukController::class, 'edit']);
+Route::get('/hapusProduk/{nomorProduk}', [KatalogProdukController::class, 'destroy']);
 
 // Harga Produk
 Route::get('/daftarHargaModal', [HargaProdukController::class, 'indexHargaModal']);

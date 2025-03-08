@@ -20,7 +20,7 @@ class KatalogProdukController extends Controller
      */
     public function index()
     {
-        $data = ViewKatalogProduk::all();
+        $data = ViewKatalogProduk::orderBy('nomor_produk', 'desc')->get();
         return view('pages.produk.katalogProduk.index', ['data' => $data]);
     }
 
@@ -131,8 +131,18 @@ class KatalogProdukController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($nomorProduk)
     {
-        //
+        $dataKatalogProduk = KatalogProduk::where('nomor_produk', $nomorProduk)->get();
+        foreach ($dataKatalogProduk as $itemKatalogProduk) {
+            $fotoProduk = $itemKatalogProduk['foto_produk'];
+        }
+
+        Storage::disk('public')->delete('foto_produk/'.$fotoProduk);
+        KatalogProduk::where('nomor_produk', $nomorProduk)->delete();
+        HargaModal::where('nomor_produk', $nomorProduk)->delete();
+        HargaJual::where('nomor_produk', $nomorProduk)->delete();
+
+        return back();
     }
 }

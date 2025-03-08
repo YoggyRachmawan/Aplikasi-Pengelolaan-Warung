@@ -64,7 +64,7 @@
                                         <a href="/formEditProduk/{{ $item->id }}" class="btn btn-warning btn-sm"><i
                                                 class="bi bi-pen-fill"></i>
                                             Edit</a>
-                                        <a href="/hapusProduk/{{ $item->id }}" class="btn btn-danger btn-sm" id="hapus"><i
+                                        <a href="/hapusProduk/{{ $item->nomor_produk }}" class="btn btn-danger btn-sm" id="hapus"><i
                                                 class="bi bi-trash-fill"></i>
                                             Hapus</a>
                                     </td>
