@@ -9,9 +9,6 @@ use Illuminate\Support\Facades\Storage;
 
 class BelanjaanController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $data = Belanjaan::select('belanjaan.id','tanggal', 'nota', 'nama_tempat', 'total_harga')
@@ -21,18 +18,12 @@ class BelanjaanController extends Controller
         return view('pages.belanja.belanjaan.index', ['data' => $data]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $data = TempatBelanja::select('id', 'nama_tempat')->get();
         return view('pages.belanja.belanjaan.formTambahBelanjaan', ['data' => $data]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -65,17 +56,6 @@ class BelanjaanController extends Controller
         return redirect('/daftarBelanjaan')->with('added', true);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show()
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit($id)
     {
         $tempatBelanja = TempatBelanja::select('id', 'nama_tempat')->get();
@@ -83,9 +63,6 @@ class BelanjaanController extends Controller
         return view('pages.belanja.belanjaan.formEditBelanjaan', ['data' => $data, 'tempatBelanja' => $tempatBelanja]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, $id)
     {
         $request->validate([
@@ -119,9 +96,6 @@ class BelanjaanController extends Controller
         return redirect('/daftarBelanjaan')->with('edited', true);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy($id)
     {
         $data = Belanjaan::find($id);

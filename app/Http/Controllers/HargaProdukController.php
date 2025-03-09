@@ -6,9 +6,6 @@ use Illuminate\Http\Request;
 
 class HargaProdukController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function indexHargaModal()
     {
         $data = session()->get('hargaModal');
@@ -21,17 +18,6 @@ class HargaProdukController extends Controller
         return response()->json($data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
     public function storeHargaModal(Request $request)
     {
         $request->validate([
@@ -68,33 +54,11 @@ class HargaProdukController extends Controller
         return response()->json($data);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroyHargaModal($index)
     {
         $dataHargaModal = session()->get('hargaModal', []);
