@@ -124,10 +124,10 @@
                 method: 'GET',
                 success: function(response) {
                     let formatter = new Intl.NumberFormat('id-ID', {
-                            style: 'decimal',
-                            minimumFractionDigits: 0, 
-                            maximumFractionDigits: 0, 
-                        });
+                        style: 'decimal',
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 0,
+                    });
                     response.forEach(function(item, index) {
                         let formattedHarga = 'Rp ' + formatter.format(item.harga);
                         $('#tabelHargaModal').append(`
@@ -159,8 +159,8 @@
                         $('#tabelHargaModal').empty();
                         let formatter = new Intl.NumberFormat('id-ID', {
                             style: 'decimal',
-                            minimumFractionDigits: 0, 
-                            maximumFractionDigits: 0, 
+                            minimumFractionDigits: 0,
+                            maximumFractionDigits: 0,
                         });
                         response.forEach(function(item, index) {
                             let formattedHarga = 'Rp ' + formatter.format(item.harga);
@@ -194,6 +194,9 @@
                     success: function(response) {
                         if (response.success) {
                             $('#tabelHargaModal tr').eq(index).remove();
+                            $('#tabelHargaModal tr').each(function(index) {
+                                $(this).find('.btn-delete').data('id', index);
+                            });
                         } else {
                             alert(response.message);
                         }
@@ -212,10 +215,10 @@
                 method: 'GET',
                 success: function(response) {
                     let formatter = new Intl.NumberFormat('id-ID', {
-                            style: 'decimal',
-                            minimumFractionDigits: 0, 
-                            maximumFractionDigits: 0, 
-                        });
+                        style: 'decimal',
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 0,
+                    });
                     response.forEach(function(item, index) {
                         let formattedHarga = 'Rp ' + formatter.format(item.harga);
                         $('#tabelHargaJual').append(`
@@ -247,8 +250,8 @@
                         $('#tabelHargaJual').empty();
                         let formatter = new Intl.NumberFormat('id-ID', {
                             style: 'decimal',
-                            minimumFractionDigits: 0, 
-                            maximumFractionDigits: 0, 
+                            minimumFractionDigits: 0,
+                            maximumFractionDigits: 0,
                         });
                         response.forEach(function(item, index) {
                             let formattedHarga = 'Rp ' + formatter.format(item.harga);
@@ -282,6 +285,9 @@
                     success: function(response) {
                         if (response.success) {
                             $('#tabelHargaJual tr').eq(index).remove();
+                            $('#tabelHargaJual tr').each(function(index) {
+                                $(this).find('.btn-delete').data('id', index);
+                            });
                         } else {
                             alert(response.message);
                         }
