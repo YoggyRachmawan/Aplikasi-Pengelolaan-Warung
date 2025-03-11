@@ -61,7 +61,7 @@
                                     <td>{!! nl2br($item->harga_modal) !!}</td>
                                     <td>{!! nl2br($item->harga_jual) !!}</td>
                                     <td class="text-center">
-                                        <a href="/formEditProduk/{{ $item->id }}" class="btn btn-warning btn-sm"><i
+                                        <a href="/formEditProduk/{{ $item->nomor_produk }}" class="btn btn-warning btn-sm"><i
                                                 class="bi bi-pen-fill"></i>
                                             Edit</a>
                                         <a href="/hapusProduk/{{ $item->nomor_produk }}" class="btn btn-danger btn-sm" id="hapus"><i
