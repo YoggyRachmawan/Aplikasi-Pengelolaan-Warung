@@ -40,14 +40,14 @@ class BelanjaanController extends Controller
             'total_harga.numeric'           => 'Hanya angka!'
         ]);
 
-        $foto_nota = $request->file('nota');
-        $nama_foto_nota = $foto_nota->getClientOriginalName();
-        $path = 'foto_nota/'.$nama_foto_nota;
-        Storage::disk('public')->put($path, file_get_contents($foto_nota));
+        $fotoNota = $request->file('nota');
+        $namaFotoNota = $fotoNota->getClientOriginalName();
+        $path = 'foto_nota/'.$namaFotoNota;
+        Storage::disk('public')->put($path, file_get_contents($fotoNota));
 
         Belanjaan::create([
             'tanggal'           => $request->tanggal,
-            'nota'              => $nama_foto_nota,
+            'nota'              => $namaFotoNota,
             'id_tempat_belanja' => $request->id_tempat_belanja,
             'total_harga'       => $request->total_harga,
             'created_at'        => now(),
@@ -78,17 +78,21 @@ class BelanjaanController extends Controller
             'total_harga.numeric'           => 'Hanya angka!'
         ]);
 
-        $foto_nota = $request->file('nota');
-        $nama_foto_nota = $foto_nota->getClientOriginalName();
-        $path = 'foto_nota/'.$nama_foto_nota;
-        Storage::disk('public')->put($path, file_get_contents($foto_nota));
-
+        $fotoNota = $request->file('nota');
         $data = Belanjaan::find($id);
-        Storage::disk('public')->delete('foto_nota/'.$data['nota']);
 
+        if (isset($fotoNota)) {
+            $namaFotoNota = $fotoNota->getClientOriginalName();
+            $path = 'foto_nota/'.$namaFotoNota;
+            Storage::disk('public')->put($path, file_get_contents($fotoNota));
+            Storage::disk('public')->delete('foto_nota/'.$data['nota']);
+        } else {
+            $namaFotoNota = $data['nota'];
+        }
+        
         $data->update([
             'tanggal'           => $request->tanggal,
-            'nota'              => $nama_foto_nota,
+            'nota'              => $namaFotoNota,
             'id_tempat_belanja' => $request->id_tempat_belanja,
             'total_harga'       => $request->total_harga,
             'updated_at'        => now()
