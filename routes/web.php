@@ -15,6 +15,7 @@ Route::get('/', [AuthController::class, 'index']);
 
 // Beranda
 Route::get('/beranda', [BerandaController::class, 'index']);
+Route::post('/beranda', [BerandaController::class, 'index']);
 
 // Belanjaan //
 Route::get('/daftarBelanjaan', [BelanjaanController::class, 'index']);
