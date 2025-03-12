@@ -70,7 +70,7 @@
                                                         <select class="js-example-basic-single" style="width: 100%"
                                                             name="tahun">
                                                             <option value="">--Pilih Tahun--</option>
-                                                            @foreach ($tahun as $item)
+                                                            @foreach ($daftarTahun as $item)
                                                                 <option value="{{ $item->tahun }}">{{ $item->tahun }}
                                                                 </option>
                                                             @endforeach
@@ -88,18 +88,18 @@
                                         <div class="col-lg-12">
                                             <div class="card">
                                                 <div class="card-header">
-                                                    <label for="">Keuangan Tahun 2025</label>
+                                                    <label for="">Keuangan Tahun {{ $keuanganTahunan['tahun'] }}</label>
                                                 </div>
                                                 <div class="card-body">
                                                     <label for="omset" class="form-label">Omset</label>
                                                     <input type="text" class="form-control form-control-sm mb-3"
-                                                        id="omset" value="Rp 1.000.000" disabled>
+                                                        id="omset" value="Rp {{ number_format($keuanganTahunan['omset'], 0, ',', '.') }}" disabled>
                                                     <label for="modal" class="form-label">Modal</label>
                                                     <input type="text" class="form-control form-control-sm mb-3"
-                                                        id="modal" value="Rp 850.000" disabled>
+                                                        id="modal" value="Rp {{ number_format($keuanganTahunan['modal'], 0, ',', '.') }}" disabled>
                                                     <label for="laba" class="form-label">Laba</label>
                                                     <input type="text" class="form-control form-control-sm"
-                                                        id="laba" value="Rp 150.000" disabled>
+                                                        id="laba" value="Rp {{ number_format($keuanganTahunan['laba'], 0, ',', '.') }}" disabled>
                                                 </div>
                                             </div>
                                         </div>

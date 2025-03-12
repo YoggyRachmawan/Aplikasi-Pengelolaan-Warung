@@ -13,8 +13,14 @@ class BerandaController extends Controller
     public function index(KeuanganChart $chart, Request $request)
     {
         $data = ViewTotalKeuangan::all();
-        $tahun = ViewKeuanganBulanan::select('tahun')->groupBy('tahun')->orderBy('tahun', 'desc')->get();
+        $daftarTahun = ViewKeuanganBulanan::select('tahun')->groupBy('tahun')->orderBy('tahun', 'desc')->get();
 
-        return view('pages.beranda.index', ['data' => $data, 'tahun' => $tahun, 'chart' => $chart->grafikKeuanganTahunan($request)]);
+        $tahun = $request->tahun;
+        if (empty($tahun)) {
+            $tahun = date('Y');
+        }
+        $keuanganTahuanan = ViewKeuanganBulanan::where('tahun', $tahun)->selectRaw('SUM(omset) as omset, SUM(modal) as modal, SUM(laba) as laba, tahun')->groupBy('tahun')->first();
+
+        return view('pages.beranda.index', ['data' => $data, 'daftarTahun' => $daftarTahun, 'keuanganTahunan' => $keuanganTahuanan, 'chart' => $chart->grafikKeuanganTahunan($request)]);
     }
 }
