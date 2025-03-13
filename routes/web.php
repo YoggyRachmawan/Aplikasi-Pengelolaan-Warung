@@ -12,6 +12,8 @@ use App\Http\Controllers\TempatBelanjaController;
 
 // Auth
 Route::get('/', [AuthController::class, 'index']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/logout', [AuthController::class, 'logout']);
 
 // Beranda
 Route::get('/beranda', [BerandaController::class, 'index']);

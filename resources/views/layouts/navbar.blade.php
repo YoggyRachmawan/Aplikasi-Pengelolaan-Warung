@@ -8,11 +8,11 @@
             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
                 data-bs-toggle="dropdown" aria-expanded="false"><i class="bi bi-person-circle"></i></a>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><label class="dropdown-item">Yoggy Rachmawan</label></li>
+                <li><label class="dropdown-item">{{ Auth::user()->name; }}</label></li>
                 <li>
                     <hr class="dropdown-divider"/>
                 </li>
-                <li><a class="dropdown-item" href="/"><i class="bi bi-door-open-fill"></i> Keluar</a></li>
+                <li><a class="dropdown-item" href="/logout"><i class="bi bi-door-open-fill"></i> Keluar</a></li>
             </ul>
         </li>
     </ul>

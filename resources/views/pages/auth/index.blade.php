@@ -36,30 +36,34 @@
                                     </h3>
                                 </div>
                                 <div class="card-body">
-                                    <form>
+                                    <form action="/login" method="post">
+                                        @csrf
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="username" type="text"
-                                                placeholder="Username" />
+                                            <input class="form-control @error('name') is-invalid @enderror"
+                                                id="username" type="text" placeholder="Username" name="name"
+                                                autocomplete="off" />
                                             <label for="username">Username</label>
+                                            @error('name')
+                                                <small style="color: red;">{{ $message }}</small>
+                                            @enderror
                                         </div>
                                         <div class="form-floating mb-3">
-                                            <input class="form-control" id="inputPassword" type="password"
-                                                placeholder="Password" />
+                                            <input class="form-control @error('password') is-invalid @enderror"
+                                                id="inputPassword" type="password" placeholder="Password"
+                                                name="password" autocomplete="off" />
                                             <label for="inputPassword">Password</label>
-                                        </div>
-                                        <div class="form-check mb-3">
-                                            <input class="form-check-input" id="ingat" type="checkbox"
-                                                value="" />
-                                            <label class="form-check-label" for="ingat">Ingat Saya</label>
+                                            @error('password')
+                                                <small style="color: red;">{{ $message }}</small>
+                                            @enderror
                                         </div>
                                         <div class="d-flex align-items-center  mt-4 mb-0">
-                                            <a class="btn btn-dark form-control" href="/beranda">Masuk</a>
+                                            <button type="submit" class="btn btn-dark form-control">Masuk</button>
                                         </div>
                                     </form>
                                 </div>
                                 <div class="card-footer py-3">
                                     <div class="d-flex align-items-center justify-content-between small">
-                                        <div class="text-muted">Copyright &copy; WarungKu 2024</div>
+                                        <div class="text-muted">Copyright &copy; WarungKu 2025</div>
                                         <div>
                                             <label class="fw-bold">Yo<span class="text-bg-dark">Ra</span></label>
                                         </div>
@@ -75,6 +79,24 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
     <script src="{{ asset('js/scripts.js') }}"></script>
+    {{-- jquery --}}
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    {{-- sweetalert2 --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(document).ready(function() {
+        // Login Gagal
+        @if (session('failed'))
+            Swal.fire({
+                icon: "error",
+                title: "Login Gagal",
+                text: "Username atau Password anda salah!",
+                showConfirmButton: true,
+                confirmButtonColor: "#3085d6"
+            })
+        @endif
+        });
+    </script>
 </body>
 
 </html>
