@@ -92,7 +92,7 @@ class KatalogProdukController extends Controller
 
             return redirect('/daftarProduk')->with('added', true);
         } else {
-            return back()->with('cancelled', true);
+            return back()->with('unsuccessful', true);
         }
     }
 
@@ -200,7 +200,7 @@ class KatalogProdukController extends Controller
 
             return redirect('/daftarProduk')->with('added', true);
         } else {
-            return back()->with('cancelled', true);
+            return back()->with('unsuccessful', true);
         }
     }
 

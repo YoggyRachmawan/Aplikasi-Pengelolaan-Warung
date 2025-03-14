@@ -104,14 +104,25 @@
             })
         @endif
 
-        // Gagal
-        @if (session('cancelled'))
+        // Gagal Input Omset
+        @if (session('inputFailed'))
             Swal.fire({
                 icon: "error",
                 title: "Gagal",
-                text: "Data gagal ditambahkan.",
-                showConfirmButton: false,
-                timer: 999
+                text: "Data keuangan tanggal tersebut sudah tersedia!",
+                showConfirmButton: true,
+                confirmButtonColor: "#3085d6"
+            })
+        @endif
+
+        // Gagal Input Katalog Produk
+        @if (session('unsuccessful'))
+            Swal.fire({
+                icon: "error",
+                title: "Gagal",
+                text: "Harga modal dan harga jual harus terisi!",
+                showConfirmButton: true,
+                confirmButtonColor: "#3085d6"
             })
         @endif
 

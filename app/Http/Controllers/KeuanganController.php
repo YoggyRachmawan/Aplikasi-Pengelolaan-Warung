@@ -47,7 +47,7 @@ class KeuanganController extends Controller
             ]);
             return back()->with('added', true);
         } else {
-            return back()->with('cancelled', true);
+            return back()->with('inputFailed', true);
         }
     }
     
