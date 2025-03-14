@@ -2,15 +2,15 @@
 @section('content')
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Belanjaan</h1>
+            <h1 class="mt-4">Nota Belanja</h1>
             <ol class="breadcrumb mb-4">
             </ol>
             <div class="card mb-4">
                 <div class="card-header d-flex">
-                    <label>Daftar Belanjaan</label>
-                    <a href="/formTambahBelanjaan" type="button" class="btn btn-primary btn-sm float-right ms-auto"><i
+                    <label>Daftar Nota Belanja</label>
+                    <a href="/formTambahNotaBelanja" type="button" class="btn btn-primary btn-sm float-right ms-auto"><i
                             class="bi bi-card-list"></i>
-                        Tambah Belanjaan
+                        Tambah Nota Belanja
                     </a>
                 </div>
                 <div class="card-body">
@@ -64,10 +64,10 @@
                                     <td class="text-center">{{ $item->nama_tempat }}</td>
                                     <td class="text-center">Rp {{ number_format($item->total_harga, 0, ',', '.') }}</td>
                                     <td class="text-center">
-                                        <a href="/formEditBelanjaan/{{ $item->id }}" class="btn btn-warning btn-sm"><i
+                                        <a href="/formEditNotaBelanja/{{ $item->id }}" class="btn btn-warning btn-sm"><i
                                                 class="bi bi-pen-fill"></i>
                                             Edit</a>
-                                        <a href="/hapusBelanjaan/{{ $item->id }}" class="btn btn-danger btn-sm" id="hapus"><i
+                                        <a href="/hapusNotaBelanja/{{ $item->id }}" class="btn btn-danger btn-sm" id="hapus"><i
                                                 class="bi bi-trash-fill"></i>
                                             Hapus</a>
                                     </td>

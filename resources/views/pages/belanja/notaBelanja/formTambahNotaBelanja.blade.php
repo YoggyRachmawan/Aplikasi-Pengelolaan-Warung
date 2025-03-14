@@ -2,20 +2,20 @@
 @section('content')
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Belanjaan</h1>
+            <h1 class="mt-4">Nota Belanja</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item"><a href="/daftarBelanjaan">Daftar Belanjaan</a></li>
-                <li class="breadcrumb-item">Tambah Belanjaan</a></li>
+                <li class="breadcrumb-item"><a href="/daftarNotaBelanja">Daftar Nota Belanja</a></li>
+                <li class="breadcrumb-item">Tambah Nota Belanja</a></li>
             </ol>
             <div class="card mb-4">
                 <div class="card-header d-flex">
-                    <label> Form Tambah Belanjaan</label>
-                    <a href="/daftarBelanjaan" type="button" class="btn btn-warning btn-sm float-right ms-auto"><i
+                    <label> Form Tambah Nota Belanja</label>
+                    <a href="/daftarNotaBelanja" type="button" class="btn btn-warning btn-sm float-right ms-auto"><i
                             class="bi bi-arrow-bar-left"></i>
                         Kembali
                     </a>
                 </div>
-                <form action="/inputBelanjaan" method="post" enctype="multipart/form-data">
+                <form action="/inputNotaBelanja" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="row mb-3">

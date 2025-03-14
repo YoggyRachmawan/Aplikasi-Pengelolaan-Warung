@@ -2,26 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Belanjaan;
-use App\Models\TempatBelanja;
+use App\Models\NotaBelanja;
 use Illuminate\Http\Request;
+use App\Models\TempatBelanja;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Storage;
 
-class BelanjaanController extends Controller
+class NotaBelanjaController extends Controller
 {
     public function index()
     {
-        $data = Belanjaan::select('belanjaan.id','tanggal', 'nota', 'nama_tempat', 'total_harga')
-                ->join('tempat_belanja', 'belanjaan.id_tempat_belanja', '=', 'tempat_belanja.id')
+        $data = NotaBelanja::select('nota_belanja.id','tanggal', 'nota', 'nama_tempat', 'total_harga')
+                ->join('tempat_belanja', 'nota_belanja.id_tempat_belanja', '=', 'tempat_belanja.id')
                 ->orderBy('tanggal', 'desc')
                 ->get();
-        return view('pages.belanja.belanjaan.index', ['data' => $data]);
+        return view('pages.belanja.notaBelanja.index', ['data' => $data]);
     }
 
     public function create()
     {
         $data = TempatBelanja::select('id', 'nama_tempat')->get();
-        return view('pages.belanja.belanjaan.formTambahBelanjaan', ['data' => $data]);
+        return view('pages.belanja.notaBelanja.formTambahNotaBelanja', ['data' => $data]);
     }
 
     public function store(Request $request)
@@ -45,7 +46,7 @@ class BelanjaanController extends Controller
         $path = 'foto_nota/'.$namaFotoNota;
         Storage::disk('public')->put($path, file_get_contents($fotoNota));
 
-        Belanjaan::create([
+        NotaBelanja::create([
             'tanggal'           => $request->tanggal,
             'nota'              => $namaFotoNota,
             'id_tempat_belanja' => $request->id_tempat_belanja,
@@ -53,14 +54,14 @@ class BelanjaanController extends Controller
             'created_at'        => now(),
             'updated_at'        => now()
         ]);
-        return redirect('/daftarBelanjaan')->with('added', true);
+        return redirect('/daftarNotaBelanja')->with('added', true);
     }
 
     public function edit($id)
     {
         $tempatBelanja = TempatBelanja::select('id', 'nama_tempat')->get();
-        $data = Belanjaan::find($id);
-        return view('pages.belanja.belanjaan.formEditBelanjaan', ['data' => $data, 'tempatBelanja' => $tempatBelanja]);
+        $data = NotaBelanja::find($id);
+        return view('pages.belanja.notaBelanja.formEditNotaBelanja', ['data' => $data, 'tempatBelanja' => $tempatBelanja]);
     }
 
     public function update(Request $request, $id)
@@ -79,7 +80,7 @@ class BelanjaanController extends Controller
         ]);
 
         $fotoNota = $request->file('nota');
-        $data = Belanjaan::find($id);
+        $data = NotaBelanja::find($id);
 
         if (isset($fotoNota)) {
             $namaFotoNota = $fotoNota->getClientOriginalName();
@@ -97,12 +98,12 @@ class BelanjaanController extends Controller
             'total_harga'       => $request->total_harga,
             'updated_at'        => now()
         ]);
-        return redirect('/daftarBelanjaan')->with('edited', true);
+        return redirect('/daftarNotaBelanja')->with('edited', true);
     }
 
     public function destroy($id)
     {
-        $data = Belanjaan::find($id);
+        $data = NotaBelanja::find($id);
         Storage::disk('public')->delete('foto_nota/'.$data['nota']);
         $data->delete();
         return back();

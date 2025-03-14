@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('belanjaan', function (Blueprint $table) {
-            $table->bigInteger('total_harga')->change();
+        Schema::create('nota_belanja', function (Blueprint $table) {
+            $table->id();
+            $table->date('tanggal');
+            $table->string('nota');
+            $table->integer('id_tempat_belanja');
+            $table->bigInteger('total_harga');
+            $table->timestamps();
         });
     }
 
@@ -21,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('nota_belanja');
     }
 };

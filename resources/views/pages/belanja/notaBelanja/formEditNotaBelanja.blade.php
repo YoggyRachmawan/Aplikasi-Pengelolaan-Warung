@@ -2,28 +2,28 @@
 @section('content')
     <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Belanjaan</h1>
+            <h1 class="mt-4">Nota Belanja</h1>
             <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item"><a href="/daftarBelanjaan">Daftar Belanjaan</a></li>
-                <li class="breadcrumb-item">Edit Belanjaan</a></li>
+                <li class="breadcrumb-item"><a href="/daftarNotaBelanja">Daftar Nota Belanja</a></li>
+                <li class="breadcrumb-item">Edit Nota Belanja</a></li>
             </ol>
             <div class="card mb-4">
                 <div class="card-header d-flex">
-                    <label> Form Edit Belanjaan</label>
-                    <a href="/daftarBelanjaan" type="button" class="btn btn-warning btn-sm float-right ms-auto"><i
+                    <label> Form Edit Nota Belanja</label>
+                    <a href="/daftarNotaBelanja" type="button" class="btn btn-warning btn-sm float-right ms-auto"><i
                             class="bi bi-arrow-bar-left"></i>
                         Kembali
                     </a>
                 </div>
-                <form action="/editBelanjaan/{{ $data->id }}" method="post" enctype="multipart/form-data">
+                <form action="/editNotaBelanja/{{ $data->id }}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
                         <div class="row mb-3">
                             <div class="col-lg-3">
-                                <label for="tanggalBelanja" class="form-label">Tanggal</label>
+                                <label for="tanggalNotaBelanja" class="form-label">Tanggal</label>
                                 <input type="date" name="tanggal"
                                     class="form-control form-control-sm @error('tanggal') is-invalid @enderror"
-                                    id="tanggalBelanja" value={{ $data->tanggal }}>
+                                    id="tanggalNotaBelanja" value={{ $data->tanggal }}>
                                 @error('tanggal')
                                     <small style="color: red;">{{ $message }}</small>
                                 @enderror

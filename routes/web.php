@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\KeuanganController;
-use App\Http\Controllers\BelanjaanController;
+use App\Http\Controllers\NotaBelanjaController;
 use App\Http\Controllers\HargaProdukController;
 use App\Http\Controllers\KatalogProdukController;
 use App\Http\Controllers\SatuanProdukController;
@@ -17,15 +17,14 @@ Route::get('/logout', [AuthController::class, 'logout']);
 
 // Beranda
 Route::get('/beranda', [BerandaController::class, 'index']);
-Route::post('/beranda', [BerandaController::class, 'index']);
 
-// Belanjaan //
-Route::get('/daftarBelanjaan', [BelanjaanController::class, 'index']);
-Route::get('/formTambahBelanjaan', [BelanjaanController::class, 'create']);
-Route::post('/inputBelanjaan', [BelanjaanController::class, 'store']);
-Route::get('/formEditBelanjaan/{id}', [BelanjaanController::class, 'edit']);
-Route::post('/editBelanjaan/{id}', [BelanjaanController::class, 'update']);
-Route::get('/hapusBelanjaan/{id}', [BelanjaanController::class, 'destroy']);
+// Nota Belanja //
+Route::get('/daftarNotaBelanja', [NotaBelanjaController::class, 'index']);
+Route::get('/formTambahNotaBelanja', [NotaBelanjaController::class, 'create']);
+Route::post('/inputNotaBelanja', [NotaBelanjaController::class, 'store']);
+Route::get('/formEditNotaBelanja/{id}', [NotaBelanjaController::class, 'edit']);
+Route::post('/editNotaBelanja/{id}', [NotaBelanjaController::class, 'update']);
+Route::get('/hapusNotaBelanja/{id}', [NotaBelanjaController::class, 'destroy']);
 
 // Tempat Belanja //
 Route::get('/daftarTempatBelanja', [TempatBelanjaController::class, 'index']);
