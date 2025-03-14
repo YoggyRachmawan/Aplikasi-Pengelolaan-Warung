@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "748b5691d7505cd74869f94378fb0ece",
+    "content-hash": "7e8c3c14ff33b199b4a0838993eb8423",
     "packages": [
         {
             "name": "brick/math",
@@ -1056,16 +1056,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v11.44.1",
+            "version": "v11.44.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "0883d4175f4e2b5c299e7087ad3c74f2ce195c6d"
+                "reference": "f85216c82cbd38b66d67ebd20ea762cb3751a4b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/0883d4175f4e2b5c299e7087ad3c74f2ce195c6d",
-                "reference": "0883d4175f4e2b5c299e7087ad3c74f2ce195c6d",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/f85216c82cbd38b66d67ebd20ea762cb3751a4b4",
+                "reference": "f85216c82cbd38b66d67ebd20ea762cb3751a4b4",
                 "shasum": ""
             },
             "require": {
@@ -1267,7 +1267,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2025-03-05T15:34:10+00:00"
+            "time": "2025-03-12T14:34:30+00:00"
         },
         {
             "name": "laravel/prompts",
@@ -2005,71 +2005,6 @@
                 }
             ],
             "time": "2024-12-08T08:18:47+00:00"
-        },
-        {
-            "name": "marineusde/larapex-charts",
-            "version": "1.4.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/marineusde/larapex-charts.git",
-                "reference": "3ba26eecbe98e19d8576574341d736a66f82cecf"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/marineusde/larapex-charts/zipball/3ba26eecbe98e19d8576574341d736a66f82cecf",
-                "reference": "3ba26eecbe98e19d8576574341d736a66f82cecf",
-                "shasum": ""
-            },
-            "require": {
-                "ext-json": "*",
-                "illuminate/support": "^10.48|^11.0",
-                "php": "^8.2"
-            },
-            "require-dev": {
-                "larastan/larastan": "^2.9",
-                "laravel/pint": "^1.15",
-                "nunomaduro/collision": "^7.10",
-                "orchestra/testbench": "^8.10",
-                "phpunit/phpunit": "^10.5"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "aliases": {
-                        "LarapexChart": "marineusde\\LarapexCharts\\Facades\\LarapexChart"
-                    },
-                    "providers": [
-                        "marineusde\\LarapexCharts\\Providers\\LarapexChartsServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "marineusde\\LarapexCharts\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Henning Zimmermann",
-                    "email": "github@marineus.de"
-                }
-            ],
-            "description": "Package to provide easy api to build apex charts on Laravel",
-            "homepage": "https://github.com/marineusde/larapex-charts",
-            "keywords": [
-                "apexcharts",
-                "charts",
-                "larapex"
-            ],
-            "support": {
-                "issues": "https://github.com/marineusde/larapex-charts/issues",
-                "source": "https://github.com/marineusde/larapex-charts/tree/1.4.3"
-            },
-            "time": "2024-11-26T08:57:59+00:00"
         },
         {
             "name": "monolog/monolog",

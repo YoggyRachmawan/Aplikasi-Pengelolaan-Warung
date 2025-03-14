@@ -10,17 +10,57 @@ use Illuminate\Routing\Controller;
 
 class BerandaController extends Controller
 {
-    public function index(KeuanganChart $chart, Request $request)
+    public function index(Request $request)
     {
-        $data = ViewTotalKeuangan::all();
-        $daftarTahun = ViewKeuanganBulanan::select('tahun')->groupBy('tahun')->orderBy('tahun', 'desc')->get();
+        if ($request->has('tahun')) {
+            // total_keuangan
+            $dataTotalKeuangan = ViewTotalKeuangan::all();
 
-        $tahun = $request->tahun;
-        if (empty($tahun)) {
-            $tahun = date('Y');
+            // daftar_tahun
+            $daftarTahun = ViewKeuanganBulanan::select('tahun')->groupBy('tahun')->orderBy('tahun', 'desc')->get();
+
+            // keuangan_tahunan
+            $keuanganTahuanan = ViewKeuanganBulanan::where('tahun', 'LIKE', $request->tahun)->selectRaw('SUM(omset) as omset, SUM(modal) as modal, SUM(laba) as laba, tahun')->groupBy('tahun')->first();
+
+            // Grafik 
+            for ($i = 1; $i <= 12; $i++) {
+                $omset = ViewKeuanganBulanan::where('tahun', 'LIKE', $request->tahun)->where('bulan', $i)->pluck('omset')->first();
+                $modal = ViewKeuanganBulanan::where('tahun', 'LIKE', $request->tahun)->where('bulan', $i)->pluck('modal')->first();
+                $laba = ViewKeuanganBulanan::where('tahun', 'LIKE', $request->tahun)->where('bulan', $i)->pluck('laba')->first();
+
+                $dataOmset[] = $omset;
+                $dataModal[] = $modal;
+                $dataLaba[]  = $laba;
+            }
+        } else {
+            // total_keuangan
+            $dataTotalKeuangan = ViewTotalKeuangan::all();
+
+            // daftar_tahun
+            $daftarTahun = ViewKeuanganBulanan::select('tahun')->groupBy('tahun')->orderBy('tahun', 'desc')->get();
+
+            // keuangan_tahunan
+            $keuanganTahuanan = ViewKeuanganBulanan::where('tahun', date('Y'))->selectRaw('SUM(omset) as omset, SUM(modal) as modal, SUM(laba) as laba, tahun')->groupBy('tahun')->first();
+
+            // Grafik 
+            for ($i = 1; $i <= 12; $i++) {
+                $omset = ViewKeuanganBulanan::where('tahun', date('Y'))->where('bulan', $i)->pluck('omset')->first();
+                $modal = ViewKeuanganBulanan::where('tahun', date('Y'))->where('bulan', $i)->pluck('modal')->first();
+                $laba = ViewKeuanganBulanan::where('tahun', date('Y'))->where('bulan', $i)->pluck('laba')->first();
+
+                $dataOmset[] = $omset;
+                $dataModal[] = $modal;
+                $dataLaba[]  = $laba;
+            }
         }
-        $keuanganTahuanan = ViewKeuanganBulanan::where('tahun', $tahun)->selectRaw('SUM(omset) as omset, SUM(modal) as modal, SUM(laba) as laba, tahun')->groupBy('tahun')->first();
 
-        return view('pages.beranda.index', ['data' => $data, 'daftarTahun' => $daftarTahun, 'keuanganTahunan' => $keuanganTahuanan, 'chart' => $chart->grafikKeuanganTahunan($request)]);
+        return view('pages.beranda.index', [
+            'totalKeuangan' => $dataTotalKeuangan,
+            'daftarTahun' => $daftarTahun,
+            'keuanganTahunan' => $keuanganTahuanan,
+            'omset' => $dataOmset,
+            'modal' => $dataModal,
+            'laba' => $dataLaba
+        ]);
     }
 }
