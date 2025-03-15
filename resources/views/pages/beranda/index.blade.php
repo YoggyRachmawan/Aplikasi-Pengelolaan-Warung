@@ -63,10 +63,11 @@
                                 <div class="col-lg-10">
                                     @if (!empty($keuanganTahunan['tahun']))
                                         <div id="chart"></div>
+                                        <div id="chartKosong" style="display: none"></div>
                                     @else
+                                        <div id="chart" style="display: none"></div>
                                         <div id="chartKosong"></div>
                                     @endif
-
                                 </div>
                                 <div class="col-lg-2">
                                     <div class="row">
@@ -74,9 +75,9 @@
                                             <div class="card mb-5">
                                                 <form action="/beranda" method="GET">
                                                     <div class="card-body">
-                                                        <label for="tempatBelanja" class="form-label">Filter</label>
+                                                        <label for="daftarTahun" class="form-label">Filter</label>
                                                         <select class="js-example-basic-single" style="width: 100%"
-                                                            name="tahun">
+                                                            name="tahun" id="daftarTahun">
                                                             <option value="">--Pilih Tahun--</option>
                                                             @foreach ($daftarTahun as $item)
                                                                 <option value="{{ $item->tahun }}">{{ $item->tahun }}
@@ -179,7 +180,9 @@
                 },
             },
             xaxis: {
-                categories: ['Bulan 1', 'Bulan 2', 'Bulan 3', 'Bulan 4', 'Bulan 5', 'Bulan 6', 'Bulan 7', 'Bulan 8', 'Bulan 9', 'Bulan 10', 'Bulan 11', 'Bulan 12']
+                categories: ['Bulan 1', 'Bulan 2', 'Bulan 3', 'Bulan 4', 'Bulan 5', 'Bulan 6', 'Bulan 7', 'Bulan 8',
+                    'Bulan 9', 'Bulan 10', 'Bulan 11', 'Bulan 12'
+                ]
             }
         };
 
@@ -190,15 +193,15 @@
         var options = {
             series: [{
                     name: "Omset",
-                    data: [0,0,0,0,0,0,0,0,0,0,0,0]
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                 },
                 {
                     name: "Modal",
-                    data: [0,0,0,0,0,0,0,0,0,0,0,0]
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                 },
                 {
                     name: "Laba",
-                    data: [0,0,0,0,0,0,0,0,0,0,0,0]
+                    data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
                 }
             ],
             chart: {
