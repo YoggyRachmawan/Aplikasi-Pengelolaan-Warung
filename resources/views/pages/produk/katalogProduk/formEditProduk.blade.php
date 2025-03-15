@@ -130,7 +130,8 @@
                             </div>
                         </div>
                     </div>
-                    <form action="/editProduk/{{ $dataProduk['nomor_produk'] }}" method="post" enctype="multipart/form-data">
+                    <form action="/editProduk/{{ $dataProduk['nomor_produk'] }}" method="post"
+                        enctype="multipart/form-data">
                         @csrf
                         <div class="card text-bg-light">
                             <div class="card-body">
@@ -146,7 +147,8 @@
                                     </div>
                                     <div class="col-lg-3">
                                         <label for="fotoProduk" class="form-label">Foto Produk</label>
-                                        <i id="fotoProduk" class="form-control form-control-sm">{{ $dataProduk['foto_produk'] }}</i>
+                                        <i id="fotoProduk"
+                                            class="form-control form-control-sm">{{ $dataProduk['foto_produk'] }}</i>
                                     </div>
                                     <div class="col-lg-4">
                                         <label for="fotoProduk" class="form-label">Foto Produk Pengganti</label>
@@ -169,4 +171,188 @@
             </div>
         </div>
     </main>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script>
+        // Harga Modal
+        $(document).ready(function() {
+            $.ajax({
+                url: '/daftarHargaModal',
+                method: 'GET',
+                success: function(response) {
+                    let formatter = new Intl.NumberFormat('id-ID', {
+                        style: 'decimal',
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 0,
+                    });
+                    response.forEach(function(item, index) {
+                        let formattedHarga = 'Rp ' + formatter.format(item.harga);
+                        $('#tabelHargaModal').append(`
+                            <tr data-index="${index}">
+                                <td>${formattedHarga}</td>
+                                <td>${item.satuan}</td>
+                                <td>
+                                    <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-delete" data-id="${index}" id="hapusHargaModal">
+                                        <i class="bi bi-trash-fill"></i> Hapus
+                                    </a>
+                                </td>
+                            </tr>
+                        `);
+                    });
+                }
+            });
+
+            $('#inputHargaModal').submit(function(e) {
+                e.preventDefault();
+                let form = $(this);
+                let url = form.attr('action');
+                let method = form.attr('method');
+                let data = form.serialize();
+                $.ajax({
+                    type: method,
+                    url: url,
+                    data: data,
+                    success: function(response) {
+                        $('#tabelHargaModal').empty();
+                        let formatter = new Intl.NumberFormat('id-ID', {
+                            style: 'decimal',
+                            minimumFractionDigits: 0,
+                            maximumFractionDigits: 0,
+                        });
+                        response.forEach(function(item, index) {
+                            let formattedHarga = 'Rp ' + formatter.format(item.harga);
+                            $('#tabelHargaModal').append(`
+                            <tr>
+                                <td>${formattedHarga}</td>
+                                <td>${item.satuan}</td>
+                                <td>
+                                    <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-delete" data-id="${index}" id="hapusHargaModal">
+                                        <i class="bi bi-trash-fill"></i> Hapus
+                                    </a>
+                                </td>
+                            </tr>
+                            `);
+                        });
+                    }
+                });
+            });
+
+            $(document).on('click', '#hapusHargaModal', function(e) {
+                e.preventDefault();
+                let index = $(this).data('id');
+
+                $.ajax({
+                    url: `/hapusHargaModal/${index}`,
+                    type: 'POST',
+                    data: {
+                        _token: $('meta[name="csrf-token"]').attr(
+                            'content')
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            $('#tabelHargaModal tr').eq(index).remove();
+                            $('#tabelHargaModal tr').each(function(index) {
+                                $(this).find('.btn-delete').data('id', index);
+                            });
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function() {
+                        alert('Terjadi kesalahan saat menghapus!');
+                    }
+                });
+            });
+        });
+
+        // Harga Jual
+        $(document).ready(function() {
+            $.ajax({
+                url: '/daftarHargaJual',
+                method: 'GET',
+                success: function(response) {
+                    let formatter = new Intl.NumberFormat('id-ID', {
+                        style: 'decimal',
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 0,
+                    });
+                    response.forEach(function(item, index) {
+                        let formattedHarga = 'Rp ' + formatter.format(item.harga);
+                        $('#tabelHargaJual').append(`
+                            <tr data-index="${index}">
+                                <td>${formattedHarga}</td>
+                                <td>${item.satuan}</td>
+                                <td>
+                                    <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-delete" data-id="${index}" id="hapusHargaJual">
+                                        <i class="bi bi-trash-fill"></i> Hapus
+                                    </a>
+                                </td>
+                            </tr>
+                        `);
+                    });
+                }
+            });
+
+            $('#inputHargaJual').submit(function(e) {
+                e.preventDefault();
+                let form = $(this);
+                let url = form.attr('action');
+                let method = form.attr('method');
+                let data = form.serialize();
+                $.ajax({
+                    type: method,
+                    url: url,
+                    data: data,
+                    success: function(response) {
+                        $('#tabelHargaJual').empty();
+                        let formatter = new Intl.NumberFormat('id-ID', {
+                            style: 'decimal',
+                            minimumFractionDigits: 0,
+                            maximumFractionDigits: 0,
+                        });
+                        response.forEach(function(item, index) {
+                            let formattedHarga = 'Rp ' + formatter.format(item.harga);
+                            $('#tabelHargaJual').append(`
+                            <tr>
+                                <td>${formattedHarga}</td>
+                                <td>${item.satuan}</td>
+                                <td>
+                                    <a href="javascript:void(0);" class="btn btn-danger btn-sm btn-delete" data-id="${index}" id="hapusHargaJual">
+                                        <i class="bi bi-trash-fill"></i> Hapus
+                                    </a>
+                                </td>
+                            </tr>
+                            `);
+                        });
+                    }
+                });
+            });
+
+            $(document).on('click', '#hapusHargaJual', function(e) {
+                e.preventDefault();
+                let index = $(this).data('id');
+
+                $.ajax({
+                    url: `/hapusHargaJual/${index}`,
+                    type: 'POST',
+                    data: {
+                        _token: $('meta[name="csrf-token"]').attr(
+                            'content')
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            $('#tabelHargaJual tr').eq(index).remove();
+                            $('#tabelHargaJual tr').each(function(index) {
+                                $(this).find('.btn-delete').data('id', index);
+                            });
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function() {
+                        alert('Terjadi kesalahan saat menghapus!');
+                    }
+                });
+            });
+        });
+    </script>
 @endsection
