@@ -223,6 +223,13 @@
                     opacity: 0.5
                 },
             },
+            yaxis: {
+                labels: {
+                    formatter: function(value) {
+                        return 'Rp ' + value.toLocaleString('id-ID');
+                    }
+                },
+            },
             xaxis: {
                 categories: ['Bulan 1', 'Bulan 2', 'Bulan 3', 'Bulan 4', 'Bulan 5', 'Bulan 6', 'Bulan 7', 'Bulan 8',
                     'Bulan 9', 'Bulan 10', 'Bulan 11', 'Bulan 12'
