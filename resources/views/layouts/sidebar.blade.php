@@ -50,7 +50,7 @@
         <div class="sb-sidenav-footer">
             <div class="small">Tanggal :</div>
             @php
-                echo date('d/m/Y')
+                echo date('d-m-Y')
             @endphp
         </div>
     </nav>
