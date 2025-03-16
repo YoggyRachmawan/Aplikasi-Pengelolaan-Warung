@@ -8,12 +8,12 @@
                 </a>
                 <div class="sb-sidenav-menu-heading">Belanja</div>
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link {{ request()->is('daftarNotaBelanja', 'formTambahNotaBelanja', 'formEditNotaBelanja') ? 'active' : '' }}"
+                    <a class="nav-link {{ request()->is('daftarNotaBelanja', 'formTambahNotaBelanja', 'formEditNotaBelanja/*') ? 'active' : '' }}"
                         href="/daftarNotaBelanja">
                         <div class="sb-nav-link-icon"><i class="bi bi-journal-text"></i></div>
                         Nota Belanja
                     </a>
-                    <a class="nav-link {{ request()->is('daftarTempatBelanja', 'formTambahTempatBelanja', 'formEditTempatBelanja') ? 'active' : '' }}"
+                    <a class="nav-link {{ request()->is('daftarTempatBelanja', 'formTambahTempatBelanja', 'formEditTempatBelanja/*') ? 'active' : '' }}"
                         href="/daftarTempatBelanja">
                         <div class="sb-nav-link-icon"><i class="bi bi-shop"></i></div>
                         Tempat Belanja
@@ -22,7 +22,7 @@
 
                 <div class="sb-sidenav-menu-heading">Produk</div>
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link {{ request()->is('daftarProduk', 'formTambahProduk', 'formEditProduk') ? 'active' : '' }}"
+                    <a class="nav-link {{ request()->is('daftarProduk', 'formTambahProduk', 'formEditProduk/*') ? 'active' : '' }}"
                         href="/daftarProduk">
                         <div class="sb-nav-link-icon"><i class="bi bi-box-seam"></i></div>
                         Katalog Produk
