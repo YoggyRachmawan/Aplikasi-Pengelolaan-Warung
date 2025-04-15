@@ -17,7 +17,7 @@ class KatalogProdukController extends Controller
 {
     public function index()
     {
-        $data = ViewKatalogProduk::orderBy('nomor_produk', 'desc')->get();
+        $data = ViewKatalogProduk::orderBy('id', 'desc')->get();
         return view('pages.produk.katalogProduk.index', ['data' => $data]);
     }
 
