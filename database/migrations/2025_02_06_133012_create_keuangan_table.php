@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('keuangan', function (Blueprint $table) {
             $table->id();
             $table->date('tanggal');
-            $table->decimal('omset');
-            $table->decimal('modal');
-            $table->decimal('laba');
+            $table->bigInteger('omset');
+            $table->bigInteger('modal');
+            $table->bigInteger('laba');
             $table->timestamps();
         });
     }
