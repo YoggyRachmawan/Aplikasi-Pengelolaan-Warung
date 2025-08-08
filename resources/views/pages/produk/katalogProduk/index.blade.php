@@ -36,7 +36,7 @@
                                     <td class="text-center">
                                         <button type="button" class="btn" data-bs-toggle="modal"
                                             data-bs-target="#zoomFotoProduk{{ $item->id }}">
-                                            <img src="{{ asset('storage/foto_produk/' . $item->foto_produk) }}" style="width : 100px; ">
+                                            <img src="{{ secure_asset('storage/foto_produk/' . $item->foto_produk) }}" style="width : 100px; ">
                                         </button>
                                         <!-- Modal -->
                                         <div class="modal fade" id="zoomFotoProduk{{ $item->id }}" data-bs-backdrop="static"
@@ -51,7 +51,7 @@
                                                             aria-label="Close"></button>
                                                     </div>
                                                     <div class="modal-body text-center">
-                                                        <img src="{{ asset('storage/foto_produk/' . $item->foto_produk) }}"
+                                                        <img src="{{ secure_asset('storage/foto_produk/' . $item->foto_produk) }}"
                                                             class="w-100">
                                                     </div>
                                                 </div>
