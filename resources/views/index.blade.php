@@ -8,11 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <link rel="shortcut icon" href="{{ asset('assets/img/logo.png') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ secure_asset('assets/img/logo.png') }}" type="image/x-icon">
     <title>WarungKu</title>
     {{-- sbadmin --}}
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link href="{{ asset('assets/css/styles.css') }}" rel="stylesheet" />
+    <link href="{{ secure_asset('assets/css/styles.css') }}" rel="stylesheet" />
     {{-- bootstrap icon --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     {{-- datatable --}}
@@ -38,7 +38,7 @@
     {{-- sbadmin --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous">
     </script>
-    <script src="{{ asset('assets/js/scripts.js') }}"></script>
+    <script src="{{ secure_asset('assets/js/scripts.js') }}"></script>
     {{-- datatable --}}
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdn.datatables.net/2.1.3/js/dataTables.js"></script>
