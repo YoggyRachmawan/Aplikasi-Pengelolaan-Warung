@@ -63,7 +63,7 @@
                                 </div>
                                 <div class="card-footer py-3">
                                     <div class="d-flex align-items-center justify-content-between small">
-                                        <div class="text-muted">Copyright &copy; WarungKu 2025</div>
+                                        <div class="text-muted"></div>
                                         <div>
                                             <label class="fw-bold">Yo<span class="text-bg-dark">Ra</span></label>
                                         </div>
@@ -84,7 +84,9 @@
     {{-- sweetalert2 --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
+
         $(document).ready(function() {
+                    alert("Username : admin | Password : admin")
         // Login Gagal
         @if (session('failed'))
             Swal.fire({
