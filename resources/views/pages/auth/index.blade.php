@@ -86,7 +86,6 @@
     <script>
 
         $(document).ready(function() {
-                    alert("Username : admin | Password : admin")
         // Login Gagal
         @if (session('failed'))
             Swal.fire({
